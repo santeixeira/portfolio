@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="box">
     <slot></slot>
   </div>
 </template>
@@ -8,12 +8,10 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "FullContainer"
+  name: "MiniBoxes"
 });
 </script>
 
-<style scoped>
-.container {
-  margin: 0em 5em 0;
-}
+<style lang="scss" scoped>
+@import "@/assets/config_sass/miniboxes.scss";
 </style>

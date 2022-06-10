@@ -1,19 +1,17 @@
 <template>
   <NavBar></NavBar>
-  <router-view></router-view>
+  <ContentSlot><router-view /></ContentSlot>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue";
-import FullContainer from "@/components/FullContainer.vue";
-import NavBar from "@/components/NavBar.vue";
+import { NavBar } from "@/components/index";
+import ContentSlot from "@/components/ContentSlot.vue";
 
 @Options({
   components: {
-    HelloWorld,
-    FullContainer,
-    NavBar
+    NavBar,
+    ContentSlot
   }
 })
 export default class App extends Vue {}

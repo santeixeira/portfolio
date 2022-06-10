@@ -1,0 +1,12 @@
+@import "@/assets/config_sass/colors.scss";
+.boxes {
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+}
+.box {
+  width: auto;
+  height: 15em;
+  background-color: $gray-scale;
+  box-shadow: 0.2em 0.2em 0.2em 0.2em rgba(132, 132, 143, 0.1);
+}

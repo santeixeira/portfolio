@@ -26,13 +26,15 @@
 
         <a class="navbar-item"> Portfólio </a>
 
+        <a class="navbar-item"> Estudos </a>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link"> Artigos e Documentos </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item"> About </a>
-            <a class="navbar-item"> Jobs </a>
-            <a class="navbar-item"> Contact </a>
+            <a class="navbar-item"> Notícias </a>
+            <a class="navbar-item"> Artigos </a>
+            <a class="navbar-item"> Documentações </a>
             <hr class="navbar-divider" />
             <a class="navbar-item"> Report an issue </a>
           </div>
@@ -42,7 +44,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <ToggleButton></ToggleButton>
+            <ToggleButton />
           </div>
         </div>
       </div>
@@ -52,7 +54,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import ToggleButton from "./ToggleButton.vue";
+import { ToggleButton } from "../index";
 export default defineComponent({
   name: "NavBar",
   components: { ToggleButton }
