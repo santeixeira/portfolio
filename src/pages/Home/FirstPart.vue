@@ -1,9 +1,9 @@
 <template>
-  <div class="block is-align-items-center">
+  <BlockBox>
     <h1>Bem vindos, samaritanos!</h1>
     <p v-if="{}">
-      Esta é um ótima <strong class="timeset">{{ dateTime() }}</strong> para estudar, não? Fique
-      de olho nas <a href="#">notícias recentes</a>!
+      Esta é um ótima <strong class="timeset">{{ dateTime() }}</strong> para
+      estudar, não? Fique de olho nas <a href="#">notícias recentes</a>!
     </p>
     <p>
       Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as
@@ -19,16 +19,16 @@
     </p>
 
     <CButton>Começar</CButton>
-  </div>
+  </BlockBox>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { CButton } from "@/components/index";
+import { CButton, BlockBox } from "@/components/index";
 
 export default defineComponent({
   name: "FirstPart",
-  components: { CButton },
+  components: { CButton, BlockBox },
   methods: {
     dateTime() {
       const time: number = new Date().getHours();

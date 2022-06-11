@@ -7,6 +7,7 @@ export { default as ToggleButton } from "@/components/Buttons/ToggleButton.vue";
 
 // Boxes
 export { default as MiniBoxes } from "@/components/Boxes/MiniBoxes.vue";
+export { default as BlockBox } from "@/components/Boxes/BlockBox.vue";
 
 // Navbars
 export { default as NavBar } from "@/components/Navigation/NavBar.vue";
