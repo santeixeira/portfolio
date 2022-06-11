@@ -2,7 +2,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img
+        <img class="not-hover"
           src="https://t3.ftcdn.net/jpg/02/60/73/30/360_F_260733058_ZI2NUHBoU9qt8upuv1PuJpwvSUbgp0iF.jpg"
         />
       </a>

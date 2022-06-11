@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="_container">
     <slot></slot>
   </div>
 </template>
@@ -8,12 +8,18 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "FullContainer"
+  name: "FullContainer",
 });
 </script>
 
-<style scoped>
-.container {
+<style lang="scss" scoped>
+._container {
   margin: 0em 5em 0;
+}
+
+@media only screen and (max-width: 350px) {
+  ._container { 
+    margin: 0em 0em 0em !important;
+  }
 }
 </style>

@@ -10,3 +10,4 @@ export { default as MiniBoxes } from "@/components/Boxes/MiniBoxes.vue";
 
 // Navbars
 export { default as NavBar } from "@/components/Navigation/NavBar.vue";
+export { default as FooterBar } from "@/components/Navigation/FooterBar.vue";

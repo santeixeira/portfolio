@@ -13,5 +13,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/config_sass/miniboxes.scss";
+@import "./miniboxes.scss";
 </style>
