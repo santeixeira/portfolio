@@ -16,7 +16,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "@/assets/config_sass/colors.scss";
 button.button {
-  width: 7em;
   height: 2em;
   color: #fff;
   background-image: linear-gradient(
