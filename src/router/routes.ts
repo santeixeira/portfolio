@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import { HomePage, AboutMe } from "./index";
+import { HomePage, AboutMe, TimeApplication } from "./index";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -11,6 +11,11 @@ const routes: RouteRecordRaw[] = [
     path: "/portfolio",
     name: "AboutMe",
     component: AboutMe
+  },
+  {
+    path: "/estudos",
+    name: "TimeApplication",
+    component: TimeApplication
   }
 ];
 

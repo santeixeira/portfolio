@@ -26,7 +26,7 @@
         <router-link class="navbar-item" to="/">Página Inicial</router-link>
         <router-link class="navbar-item" to="/portfolio">Portfólio</router-link>
 
-        <a class="navbar-item"> Estudos </a>
+        <router-link class="navbar-item" to="/estudos">Estudos</router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link"> Artigos e Documentos </a>

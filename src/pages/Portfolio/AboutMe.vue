@@ -52,7 +52,7 @@
             cargas da aeronave, analisando os dados e repassando em torno de 80%
             mais rapido.
           </p>
-          <h2>Para mais informacoes, veja meu curriculo abaixo</h2>
+          <h2>Para informações mais sucintas</h2>
           <CButton>Conferir curriculo</CButton>
         </div>
       </div>
