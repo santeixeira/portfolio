@@ -10,9 +10,18 @@
                 alt=""
               />
             </li>
-            <li>San Thiago Teixeira</li>
-            <li></li>
-            <li></li>
+            <li>
+              <i class="fas fa-user"></i>
+              <span>San Thiago Teixeira</span>
+            </li>
+            <li>
+              <i class="fas fa-user"></i>
+              <span>github.com/santeixeira</span>
+            </li>
+            <li>
+              <i class="fas fa-user"></i>
+              <span>linkedin.com/user/santeixeira</span>
+            </li>
           </ul>
         </div>
         <div class="column is-9">
@@ -66,13 +75,25 @@ ul.multilines li {
 }
 
 ul.multilines li img {
-  box-shadow: 0.1em 0.1em 0.1em 0.1em rgba($color: $third-secondary-color, $alpha: 0.23);
-  
+  box-shadow: 0.1em 0.1em 0.1em 0.1em
+    rgba($color: $third-secondary-color, $alpha: 0.23);
+  height: 16.6666em;
+  width: 16.6666em;
 }
 
-
-ul.multilines li {
-  font-size: 1.625em;
+ul.multilines span {
+  font-size: 1em;
   font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    color: $third-secondary-color;
+    font-weight: 800;
+    box-shadow: 0.1em 0.1em 0.1em 0.5em
+      rgba($color: $third-secondary-color, $alpha: 0.025);
+  }
+}
+
+ul.multilines i {
+  margin-right: 1em;
 }
 </style>
