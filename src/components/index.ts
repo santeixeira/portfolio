@@ -17,3 +17,6 @@ export { default as ListContent } from "@/components/Lists/ListContent.vue";
 export { default as NavBar } from "@/components/Navigation/NavBar.vue";
 export { default as SideBar } from "@/components/Navigation/SideBar.vue";
 export { default as FooterBar } from "@/components/Navigation/FooterBar.vue";
+
+// Miscellaneous
+export { default as Cronometer } from "@/components/misc/CronometerSection.vue"
