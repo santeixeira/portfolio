@@ -1,12 +1,9 @@
 <template>
   <div class="columns is-gapless is-multiline">
     <div class="column is-10">
-      <FieldBar />
+      <FieldBar @atSaveTask="saveTask" />
       <div class="content-side">
-        <Pomodoro />
-        <Pomodoro />
-        <Pomodoro />
-        <Pomodoro />
+        <Pomodoro v-for="(task, index) in tasks" :key="index" :task="task" />
       </div>
     </div>
     <div class="column is-2 side-bar">
@@ -18,11 +15,21 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { SideBar } from "@/components/index";
-import { FieldBar, Pomodoro } from "./index";
-
+import { FieldBar, Pomodoro } from "../index";
+import ITask from "@/interface/ITask";
 export default defineComponent({
   name: "TimeApplication",
-  components: { SideBar, FieldBar, Pomodoro }
+  components: { SideBar, FieldBar, Pomodoro },
+  data() {
+    return {
+      tasks: [] as ITask[]
+    };
+  },
+  methods: {
+    saveTask(task: ITask): void {
+      this.tasks.push(task);
+    }
+  }
 });
 </script>
 

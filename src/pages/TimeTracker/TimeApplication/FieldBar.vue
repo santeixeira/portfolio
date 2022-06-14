@@ -10,11 +10,11 @@
         />
       </div>
       <div class="column is-3">
-        <select class="input-box">
-          <option value="null" selected>Selecione a sprint</option>
-          <option value="1">Sprints 25/5</option>
-          <option value="2">Sprints 40/10</option>
-          <option value="3">Sprints 50/10</option>
+        <select v-model="typePomodoro" class="input-box">
+          <option disabled value="">Selecione a sprint</option>
+          <option>Sprints 25/5</option>
+          <option>Sprints 45/10</option>
+          <option>Sprints 50/10</option>
         </select>
       </div>
       <div class="column is-4">
@@ -30,15 +30,21 @@ import { ListBox } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
 export default defineComponent({
   name: "FieldBar",
+  emits: ["atSaveTask"],
   components: { ListBox, ListTemporizer },
   data() {
     return {
-      description: ""
+      description: "",
+      typePomodoro: ""
     };
   },
   methods: {
     end(timePassed: number): void {
-      console.log(timePassed);
+      this.$emit("atSaveTask", {
+        timeSeconds: timePassed,
+        description: this.description,
+        typePomodoro: this.typePomodoro
+      });
     }
   }
 });
