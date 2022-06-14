@@ -1,46 +1,12 @@
 <template>
   <div class="columns is-gapless is-multiline">
     <div class="column is-10">
-      <FieldBar></FieldBar>
+      <FieldBar />
       <div class="content-side">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-          soluta! Vero minus accusamus neque perspiciatis non, cupiditate
-          dolores odio sed corrupti rem rerum quis libero illo hic, quisquam
-          iste consequatur. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Sapiente, soluta! Vero minus accusamus neque perspiciatis non,
-          cupiditate dolores odio sed corrupti rem rerum quis libero illo hic,
-          quisquam iste consequatur. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Sapiente, soluta! Vero minus accusamus neque
-          perspiciatis non, cupiditate dolores odio sed corrupti rem rerum quis
-          libero illo hic, quisquam iste consequatur. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Sapiente, soluta! Vero minus accusamus
-          neque perspiciatis non, cupiditate dolores odio sed corrupti rem rerum
-          quis libero illo hic, quisquam iste consequatur. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Sapiente, soluta! Vero minus
-          accusamus neque perspiciatis non, cupiditate dolores odio sed corrupti
-          rem rerum quis libero illo hic, quisquam iste consequatur. Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Sapiente, soluta! Vero
-          minus accusamus neque perspiciatis non, cupiditate dolores odio sed
-          corrupti rem rerum quis libero illo hic, quisquam iste consequatur.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-          soluta! Vero minus accusamus neque perspiciatis non, cupiditate
-          dolores odio sed corrupti rem rerum quis libero illo hic, quisquam
-          iste consequatur. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Sapiente, soluta! Vero minus accusamus neque perspiciatis non,
-          cupiditate dolores odio sed corrupti rem rerum quis libero illo hic,
-          quisquam iste consequatur. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Sapiente, soluta! Vero minus accusamus neque
-          perspiciatis non, cupiditate dolores odio sed corrupti rem rerum quis
-          libero illo hic, quisquam iste consequatur. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Sapiente, soluta! Vero minus accusamus
-          neque perspiciatis non, cupiditate dolores odio sed corrupti rem rerum
-          quis libero illo hic, quisquam iste consequatur. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Sapiente, soluta! Vero minus
-          accusamus neque perspiciatis non, cupiditate dolores odio sed corrupti
-          rem rerum quis libero illo hic, quisquam iste consequatur.
-        </p>
-        
+        <Pomodoro />
+        <Pomodoro />
+        <Pomodoro />
+        <Pomodoro />
       </div>
     </div>
     <div class="column is-2 side-bar">
@@ -52,11 +18,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { SideBar } from "@/components/index";
-import { FieldBar } from "./index";
+import { FieldBar, Pomodoro } from "./index";
 
 export default defineComponent({
   name: "TimeApplication",
-  components: { SideBar, FieldBar }
+  components: { SideBar, FieldBar, Pomodoro }
 });
 </script>
 
