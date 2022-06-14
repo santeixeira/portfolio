@@ -4,8 +4,9 @@ $content-margin: 15em;
 
 .input-box {
   height: 2.75em;
+  align-items: center;
   width: 100%;
-  border: 1px solid $gray-scale;
+  border: 1px solid $gray-scale-2;
   color: $font-color;
   font-family: Poppins, sans-serif;
   border-radius: 4px;
@@ -18,7 +19,9 @@ $content-margin: 15em;
   }
 
   &:focus-visible {
+    transition: 0.5s ease-in;
     outline-color: $primary-color;
+
   }
 }
 

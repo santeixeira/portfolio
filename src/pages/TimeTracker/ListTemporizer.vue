@@ -1,20 +1,22 @@
 <template>
-  <Cronometer :timeSeconds="timeSeconds" />
-  <button class="button" @click="startCount">
-    <span class="icon">
-      <i :class="icon"></i>
-    </span>
-    <span>{{ text }}</span>
-  </button>
+  <div class="organize-list is-justify-content-space-around">
+    <Cronometer :timeSeconds="timeSeconds" />
+    <CButton @click="startCount">
+      <span class="icon">
+        <i :class="icon"></i>
+      </span>
+      <span>{{ text }}</span>
+    </CButton>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Cronometer } from "@/components/index";
+import { Cronometer, CButton } from "@/components/index";
 
 export default defineComponent({
   name: "ListTemporizer",
-  components: { Cronometer },
+  components: { Cronometer, CButton },
   data() {
     return {
       timeSeconds: 0,

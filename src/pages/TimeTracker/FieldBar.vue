@@ -1,6 +1,6 @@
 <template>
   <ListBox>
-    <div class="columns">
+    <div class="columns organize-list">
       <div class="column is-5" role="form" aria-label="Form for new task">
         <input
           type="text"
@@ -17,7 +17,7 @@
           <option value="3">Sprints 50/10</option>
         </select>
       </div>
-      <div class="column is-4 organize-list">
+      <div class="column is-4">
         <ListTemporizer @endedTime="end" />
       </div>
     </div>

@@ -15,13 +15,13 @@
     </router-link>
     <router-link to="">
       <div class="side-bar-content">
-        <i class="fas fa-briefcase"></i> 
-        <span>Relatórios</span>
+        <i class="fas fa-list-check"></i> 
+        <span>À fazeres</span>
       </div>
     </router-link>
     <router-link to="">
       <div class="side-bar-content">
-        <i class="fas fa-briefcase"></i> 
+        <i class="fas fa-file"></i> 
         <span>Relatórios</span>
       </div>
     </router-link>
