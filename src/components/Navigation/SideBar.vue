@@ -1,65 +1,81 @@
 <template>
-  <header>
-    <h1>
-      <img
-        src="https://img.freepik.com/free-photo/tropical-palm-leaves-monstera-pink-background-flat-lay-top-view-minimal-concept_46686-199.jpg?w=2000"
-        alt="avatar"
-        id="avatar"
-      />
-    </h1>
-    <nav class="mt-6">
-      <div class="navbar-content mt-3">
-        <router-link to="/dashboard" class="link"> Dashboard </router-link>
+  <h1>
+    <img
+      src="https://cdn.dribbble.com/users/427857/screenshots/16181208/aimm_dribbble_full.png?compress=1&resize=400x300"
+      alt="image_foo"
+      id="image_foo"
+    />
+  </h1>
+  <nav class="mt-6">
+    <router-link to="/vagas">
+      <div class="side-bar-content">
+        <i class="fas fa-hourglass"></i>
+        <span>Pomodoro</span>
       </div>
-
-      <div class="navbar-content mt-3">
-        <router-link to="/vagas" class="link"> Perfil </router-link>
+    </router-link>
+    <router-link to="/vagas">
+      <div class="side-bar-content">
+        <i class="fas fa-briefcase"></i> 
+        <span>Relatórios</span>
       </div>
-
-      <div class="navbar-content mt-3">
-        <router-link to="/vagas" class="link">
-          <i class="fas fa-briefcase"></i> Vagas
-        </router-link>
+    </router-link>
+    <router-link to="/vagas">
+      <div class="side-bar-content">
+        <i class="fas fa-briefcase"></i> 
+        <span>Relatórios</span>
       </div>
-    </nav>
-  </header>
-  <footer>
-    <div class="has-text-centered">
-      <button type="button" class="darkmode-button" @click="alterTheme">
-        {{ txtButton }}
-      </button>
-    </div>
-  </footer>
+    </router-link>
+    <router-link to="/vagas">
+      <div class="side-bar-content">
+        <i class="fas fa-timeline"></i> 
+        <span>Histórico</span>
+      </div>
+    </router-link>
+  </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "SideBar",
-  emits: ["alteredTheme"],
-  data() {
-    return {
-      darkMode: false
-    };
-  },
-  computed: {
-    txtButton() {
-      if (this.darkMode) {
-        return "Modo escuro";
-      }
-      return "Modo claro";
-    }
-  },
-  methods: {
-    alterTheme() {
-      this.darkMode = !this.darkMode;
-      this.$emit("alteredTheme", this.darkMode);
-    }
-  }
+  name: "SideBar"
 });
 </script>
 
 <style lang="scss" scoped>
-@import url("./style.scss");
+@import "@/assets/config_sass/colors.scss";
+
+.side-bar-content {
+  color: $font-color;
+  margin: 1em 0 1em;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.side-bar-content i {
+  margin-right: 0.5em;
+}
+
+#image_foo {
+  margin-top: 3em;
+  width: 10em;
+  height: 10em;
+  -webkit-border-radius: 50%;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 50%;
+  -moz-background-clip: padding;
+  border-radius: 50%;
+  background-clip: padding-box;
+  background-size: cover;
+  background-position: center center;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .side-bar {
+    padding: 2.5rem;
+    height: auto;
+  }
+}
 </style>

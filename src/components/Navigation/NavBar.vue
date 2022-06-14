@@ -57,7 +57,27 @@ import { defineComponent } from "vue";
 import { ToggleButton } from "../index";
 export default defineComponent({
   name: "NavBar",
-  components: { ToggleButton }
+  components: { ToggleButton },
+  emits: ["alteredTheme"],
+  data() {
+    return {
+      darkMode: false
+    };
+  },
+  computed: {
+    txtButton() {
+      if (this.darkMode) {
+        return "Modo escuro";
+      }
+      return "Modo claro";
+    }
+  },
+  methods: {
+    alterTheme() {
+      this.darkMode = !this.darkMode;
+      this.$emit("alteredTheme", this.darkMode);
+    }
+  }
 });
 </script>
 
