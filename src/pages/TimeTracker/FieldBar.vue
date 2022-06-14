@@ -4,21 +4,21 @@
       <div class="column is-5" role="form" aria-label="Form for new task">
         <input
           type="text"
-          class="input"
+          class="input-box"
           placeholder="Nomeia a nova tarefa"
           v-model="description"
         />
       </div>
       <div class="column is-3">
-        <div class="select is-primary">
-          <select>
-            <option>Select dropdown</option>
-            <option>With options</option>
-          </select>
-        </div>
+        <select class="input-box">
+          <option value="null" selected>Selecione a sprint</option>
+          <option value="1">Sprints 25/5</option>
+          <option value="2">Sprints 40/10</option>
+          <option value="3">Sprints 50/10</option>
+        </select>
       </div>
       <div class="column is-4 organize-list">
-        <Temporizer @endedTime="end" />
+        <ListTemporizer @endedTime="end" />
       </div>
     </div>
   </ListBox>
@@ -27,14 +27,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ListBox } from "@/components/index";
-import { Temporizer } from "./index";
+import ListTemporizer from "./ListTemporizer.vue";
 export default defineComponent({
   name: "FieldBar",
-  components: { ListBox, Temporizer },
-  data () {
+  components: { ListBox, ListTemporizer },
+  data() {
     return {
-      description: "",
-    }
+      description: ""
+    };
   },
   methods: {
     end(timePassed: number): void {
@@ -45,6 +45,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/config_sass/presets.scss";
 .organize-list {
   display: flex;
   justify-content: space-between;

@@ -7,25 +7,25 @@
     />
   </h1>
   <nav class="mt-6">
-    <router-link to="/vagas">
+    <router-link to="">
       <div class="side-bar-content">
         <i class="fas fa-hourglass"></i>
         <span>Pomodoro</span>
       </div>
     </router-link>
-    <router-link to="/vagas">
+    <router-link to="">
       <div class="side-bar-content">
         <i class="fas fa-briefcase"></i> 
         <span>Relatórios</span>
       </div>
     </router-link>
-    <router-link to="/vagas">
+    <router-link to="">
       <div class="side-bar-content">
         <i class="fas fa-briefcase"></i> 
         <span>Relatórios</span>
       </div>
     </router-link>
-    <router-link to="/vagas">
+    <router-link to="">
       <div class="side-bar-content">
         <i class="fas fa-timeline"></i> 
         <span>Histórico</span>

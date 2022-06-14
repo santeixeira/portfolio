@@ -1,5 +1,5 @@
 <template>
-  <NavBar></NavBar>
+  <NavBar/>
   <ContentSlot><router-view /></ContentSlot>
   <FooterBar></FooterBar>
 </template>
