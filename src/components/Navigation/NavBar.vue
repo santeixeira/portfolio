@@ -44,7 +44,8 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <ToggleButton />
+            <ToggleButton v-model="darkMode"/>
+            {{darkMode}}
           </div>
         </div>
       </div>
@@ -61,7 +62,7 @@ export default defineComponent({
   emits: ["alteredTheme"],
   data() {
     return {
-      darkMode: false
+      darkMode: false,
     };
   },
   computed: {

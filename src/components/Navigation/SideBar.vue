@@ -7,30 +7,7 @@
     />
   </h1>
   <nav class="mt-6">
-    <router-link to="">
-      <div class="side-bar-content">
-        <i class="fas fa-hourglass"></i>
-        <span>Pomodoro</span>
-      </div>
-    </router-link>
-    <router-link to="">
-      <div class="side-bar-content">
-        <i class="fas fa-list-check"></i> 
-        <span>À fazeres</span>
-      </div>
-    </router-link>
-    <router-link to="">
-      <div class="side-bar-content">
-        <i class="fas fa-file"></i> 
-        <span>Relatórios</span>
-      </div>
-    </router-link>
-    <router-link to="">
-      <div class="side-bar-content">
-        <i class="fas fa-timeline"></i> 
-        <span>Histórico</span>
-      </div>
-    </router-link>
+    <slot></slot>
   </nav>
 </template>
 
@@ -42,7 +19,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/assets/config_sass/colors.scss";
 
 .side-bar-content {
