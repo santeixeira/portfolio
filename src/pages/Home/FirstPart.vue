@@ -1,9 +1,9 @@
 <template>
   <BlockBox>
     <h1>Bem vindos, samaritanos!</h1>
-    <p v-if="{}">
+    <p>
       Esta é um ótima <strong class="timeset">{{ dateTime() }}</strong> para
-      estudar, não? Fique de olho nas <a href="#">notícias recentes</a>!
+      estudar, não? Fique de olho nas <a href="#reference">notícias recentes</a>!
     </p>
     <p>
       Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as

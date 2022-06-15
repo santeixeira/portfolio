@@ -2,6 +2,13 @@
 
 $content-margin: 15em;
 
+.a4-paper {
+  width: 7in; 
+  height: 9.25in;
+  margin: 27mm 16mm 27mm 16mm;
+  background-color: black;
+}
+
 .input-box {
   height: 2.75em;
   align-items: center;
@@ -21,7 +28,6 @@ $content-margin: 15em;
   &:focus-visible {
     transition: 0.5s ease-in;
     outline-color: $primary-color;
-
   }
 }
 

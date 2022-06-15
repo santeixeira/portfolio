@@ -20,3 +20,4 @@ export { default as FooterBar } from "@/components/Navigation/FooterBar.vue";
 
 // Miscellaneous
 export { default as Cronometer } from "@/components/misc/CronometerSection.vue"
+export { default as CurriculumPaper } from "@/components/misc/CurriculumPaper.vue"

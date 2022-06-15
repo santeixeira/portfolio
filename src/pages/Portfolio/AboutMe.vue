@@ -53,7 +53,7 @@
             mais rapido.
           </p>
           <h2>Para informações mais sucintas</h2>
-          <CButton>Conferir curriculo</CButton>
+          <router-link to="/curriculum"><CButton>Conferir curriculo</CButton></router-link>
         </div>
       </div>
     </BlockBox>
@@ -64,11 +64,13 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import axios from "axios";
 import { BlockBox, FullContainer, CButton } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
 export default defineComponent({
   name: "AboutMe",
-  components: { BlockBox, FullContainer, CButton, Certificates, Portfolio }
+  components: { BlockBox, FullContainer, CButton, Certificates, Portfolio },
+  methods: {}
 });
 </script>
 

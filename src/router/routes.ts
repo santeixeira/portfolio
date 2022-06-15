@@ -1,6 +1,6 @@
 import { TimeApplication } from "@/pages/TimeTracker";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import { HomePage, AboutMe, ContentStudies } from "./index";
+import { HomePage, AboutMe, ContentStudies, CurriculumTemplate } from "./index";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -14,7 +14,12 @@ const routes: RouteRecordRaw[] = [
     component: AboutMe
   },
   {
-    path: "/estudos/:id",
+    path: "/curriculum",
+    name: "CurriculumTemplate",
+    component: CurriculumTemplate
+  },
+  {
+    path: "/estudos",
     name: "ContentStudies",
     component: ContentStudies,
     children: [
