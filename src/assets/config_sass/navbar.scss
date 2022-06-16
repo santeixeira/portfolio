@@ -1,15 +1,11 @@
 @import "./colors.scss";
 $content-margin: 2em;
 
-.content-slot {
-  margin-top: calc($content-margin + 4em);
-  
-}
-
 .navbar {
   top: 0;
   position: fixed;
   contain: content;
+  background: none;
   display: flex;
   width: 100%;
   max-height: 100%;
@@ -39,4 +35,7 @@ a.navbar-item:hover {
   height: 3.75em;
   width: 3.75em;
   max-height: 100%;
+  &:hover{
+    margin: 0em 0 0em;
+  }
 }

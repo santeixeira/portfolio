@@ -1,8 +1,8 @@
 <template>
   <FullContainer>
-    <FirstPart id="introduction"/>
-    <SecondPart id="partitions"/>
-    <ThirdPart id="#reference"/>
+    <FirstPart @referenced="reference" />
+    <SecondPart />
+    <ThirdPart ref="letter" id="letter" />
   </FullContainer>
 </template>
 
@@ -12,13 +12,16 @@ import { FullContainer } from "@/components/index";
 import { FirstPart, SecondPart, ThirdPart } from "./index";
 export default defineComponent({
   name: "HomePage",
-  emits: ["#reference"],
   components: { FullContainer, FirstPart, SecondPart, ThirdPart },
   data() {
     return {
-      references: "reference",
       images: ["image_articles", "image2_articles", "image3_articles"]
     };
+  },
+  methods: {
+    reference(letter: string): void {
+      scrollTo({ top: 900, behavior: "smooth" });
+    }
   }
 });
 </script>

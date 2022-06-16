@@ -44,8 +44,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <ToggleButton v-model="darkMode"/>
-            {{darkMode}}
+            <ToggleButton @checkedBox="alterTheme" />
           </div>
         </div>
       </div>
@@ -62,19 +61,11 @@ export default defineComponent({
   emits: ["alteredTheme"],
   data() {
     return {
-      darkMode: false,
+      darkMode: false
     };
   },
-  computed: {
-    txtButton() {
-      if (this.darkMode) {
-        return "Modo escuro";
-      }
-      return "Modo claro";
-    }
-  },
   methods: {
-    alterTheme() {
+    alterTheme(): void {
       this.darkMode = !this.darkMode;
       this.$emit("alteredTheme", this.darkMode);
     }

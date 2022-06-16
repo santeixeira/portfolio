@@ -29,31 +29,35 @@
           <p>
             Sou um programador, amante do progresso e admirador de muitos
             esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou
-            estudante de Ciencia da Computacao no Instituto Federal do Ceara.
-            Almejo a constancia nos estudos, na academia (tanto fisica quanto
+            estudante de Ciencia da Computação no Instituto Federal do Ceara.
+            Almejo a consistência nos estudos, na academia (tanto fisica quanto
             intelectual) e na vida.
           </p>
           <p>
             Vim da engenharia, onde cursei durante 2 anos e meio Engenharia
-            Metalurgica e um ano Engenharia Mecânica. Nao me considero um
-            profissional que mudou de carreira, mas que me encontrou dentro do
-            desenvolvimento.
+            Metalúrgica e um ano Engenharia Mecânica. Não me considero um
+            profissional que mudou de carreira, mas que se encontrou dentro do
+            desenvolvimento de softwares, onde contarei como:
           </p>
           <p>
             Dentro da universidade Federal do Ceará, participei de um projeto de
-            extensao chamado Avoante Aeromec Aerodesign, onde fui líder de
-            subsistema, melhorando diversas qualidades em Soft-skills, como
-            trabalhar em equipe dentro de metodologias ageis, lidar com
-            dead-lines e principalmente a coordenar um time para um fim comum.
+            extensão chamado Avoante Aeromec Aerodesign, onde fui líder do
+            subsistema de Cargas e Aeroelasticidade, o que me fez aprimorar
+            diversas qualidades em Soft-skills, como trabalhar em equipe dentro
+            de metodologias ageis, lidar com dead-lines e principalmente a
+            coordenar um time para um fim comum.
           </p>
           <p>
-            Já nas hard-skills da minha area atual, utilizei python para criacao
-            de programas de automatizacao e optimizacao do tempo de projeto das
-            cargas da aeronave, analisando os dados e repassando em torno de 80%
-            mais rapido.
+            Já nas hard-skills, utilizei python para criação de programas de
+            automatização e optimização da obtenção de cargas e efeitos
+            aeroelasticos da aeronave projetada, tempo de projeto das cargas
+            da aeronave, analisando os dados e repassando em torno de 80% mais
+            rapido.
           </p>
           <h2>Para informações mais sucintas</h2>
-          <router-link to="/curriculum"><CButton>Conferir curriculo</CButton></router-link>
+          <router-link to="/curriculum"
+            ><CButton>Conferir curriculo</CButton></router-link
+          >
         </div>
       </div>
     </BlockBox>
@@ -64,7 +68,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import axios from "axios";
 import { BlockBox, FullContainer, CButton } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
 export default defineComponent({

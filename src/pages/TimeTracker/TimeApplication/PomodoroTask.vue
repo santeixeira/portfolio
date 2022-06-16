@@ -1,6 +1,6 @@
 <template>
-  <ListBox>
-    <div class="columns">
+  <ListBox >
+    <div class="columns" >
       <div class="column is-5">{{ task.description }}</div>
       <div class="column">{{ task.typePomodoro }}</div>
       <div class="column">
@@ -22,6 +22,11 @@ export default defineComponent({
       required: true
     }
   },
+  data() {
+    return {
+      darkMode: false
+    }
+  },
   components: {
     Cronometer,
     ListBox
@@ -30,6 +35,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/config_sass/dark-mode.scss";
 .box {
   margin: 2.5em;
 }

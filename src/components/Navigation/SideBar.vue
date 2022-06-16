@@ -1,26 +1,39 @@
 <template>
-  <h1>
-    <img
-      src="https://cdn.dribbble.com/users/427857/screenshots/16181208/aimm_dribbble_full.png?compress=1&resize=400x300"
-      alt="image_foo"
-      id="image_foo"
-    />
-  </h1>
-  <nav class="mt-6">
-    <slot></slot>
-  </nav>
+  <ListBox class="side-bar">
+    <h1>
+      <img
+        src="https://cdn.dribbble.com/users/427857/screenshots/16181208/aimm_dribbble_full.png?compress=1&resize=400x300"
+        alt="image_foo"
+        id="image_foo"
+      />
+    </h1>
+    <nav class="mt-6">
+      <slot></slot>
+    </nav>
+  </ListBox>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import { ListBox } from "@/components/index";
 export default defineComponent({
-  name: "SideBar"
+  name: "SideBar",
+  components: {
+    ListBox
+  }
 });
 </script>
 
 <style lang="scss">
 @import "@/assets/config_sass/colors.scss";
+.box.side-bar {
+  height: 100vh;
+  margin-top: 0em !important;
+}
+
+.box.dark-mode {
+  background-color: $first-secondary-color;
+}
 
 .side-bar-content {
   color: $font-color;

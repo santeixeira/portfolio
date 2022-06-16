@@ -1,9 +1,9 @@
 <template>
-  <div class="columns is-gapless is-multiline">
+  <main class="columns is-gapless is-multiline">
     <div class="column is-10">
       <router-view></router-view>
     </div>
-    <div class="column is-2 side-bar">
+    <div class="column is-2 side-bar" >
       <SideBar>
         <router-link to="/pomodoro">
           <div class="side-bar-content">
@@ -31,7 +31,7 @@
         </router-link>
       </SideBar>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -39,8 +39,20 @@ import { defineComponent } from "vue";
 import { SideBar } from "@/components/index";
 export default defineComponent({
   name: "ContentStudies",
-  components: { SideBar }
+  components: { SideBar },
+  data() {
+    return {
+      darkMode: false
+    };
+  },
+  methods: {
+    alterTheme(darkMode: boolean) {
+      this.darkMode = darkMode;
+    }
+  }
 });
 </script>
 
-<style scoped></style>
+<style lang="scss">
+@import "@/assets/config_sass/colors.scss";
+</style>

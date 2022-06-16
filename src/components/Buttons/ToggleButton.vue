@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" id="switch" />
+  <input type="checkbox" id="switch" @change="checked" />
   <label for="switch">Toggle</label>
 </template>
 
@@ -7,10 +7,22 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ToggleButton"
+  name: "ToggleButton",
+  emits: ["checkedBox"],
+  data() {
+    return {
+      checkedBox: true
+    };
+  },
+  methods: {
+    checked() {
+      this.checkedBox = !this.checkedBox;
+      this.$emit("checkedBox");
+    }
+  }
 });
 </script>
 
 <style scoped lang="scss">
-@import "toggle_button.scss"
+@import "toggle_button.scss";
 </style>

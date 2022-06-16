@@ -1,6 +1,20 @@
 @import "colors.scss";
 
-$content-margin: 15em;
+$content-margin: 2em;
+
+main{
+  --text-color: $background-primary;
+  --text-color: $font-color;
+}
+
+main.dark-mode {
+  --bg-primary: $background-secondary;
+  --text-color: #fff;
+}
+
+.content-theme {
+  background-color: var(--bg-primary);
+}
 
 .a4-paper {
   width: 7in; 

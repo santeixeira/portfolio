@@ -1,17 +1,19 @@
 <template>
-  <div class="content-slot">
+  <main class="content-slot" >
     <slot></slot>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ContentSlot"
+  name: "ContentSlot",
+  
 });
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/config_sass/navbar.scss";
+@import "@/assets/config_sass/presets.scss";
+
 </style>

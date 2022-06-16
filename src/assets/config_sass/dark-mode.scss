@@ -1,0 +1,20 @@
+@import "./colors.scss";
+
+.box.dark-mode {
+  background-color: $background-secondary !important;
+}
+
+main.dark-mode {
+  background-image: $background-secondary;
+  box-shadow: none;
+}
+
+nav.dark-mode {
+  background: none;
+  box-shadow: none;
+  color: $gray-scale;
+}
+
+nav.dark-mode + .navbar + .navbar-item  {
+  color: #fff;
+}

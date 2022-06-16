@@ -1,9 +1,10 @@
 <template>
-  <BlockBox>
+  <BlockBox id="block">
     <h1>Bem vindos, samaritanos!</h1>
     <p>
       Esta é um ótima <strong class="timeset">{{ dateTime() }}</strong> para
-      estudar, não? Fique de olho nas <a href="#reference">notícias recentes</a>!
+      estudar, não? Fique de olho nas
+      <a @click="reference">notícias recentes</a>!
     </p>
     <p>
       Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as
@@ -18,7 +19,7 @@
       afins. Dá uma conferida, colega!
     </p>
 
-    <CButton>Começar</CButton>
+    <router-link to="/pomodoro"><CButton>Começar</CButton></router-link>
   </BlockBox>
 </template>
 
@@ -28,6 +29,7 @@ import { CButton, BlockBox } from "@/components/index";
 
 export default defineComponent({
   name: "FirstPart",
+  emits: ["referenced"],
   components: { CButton, BlockBox },
   methods: {
     dateTime() {
@@ -47,8 +49,10 @@ export default defineComponent({
           timeSet = "madrugada";
           break;
       }
-      console.log(time);
       return timeSet;
+    },
+    reference() {
+      this.$emit("referenced");
     }
   }
 });
@@ -57,6 +61,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "./Home.scss";
 @import "@/assets/config_sass/colors.scss";
+#block {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
 strong.timeset {
   color: $third-secondary-color;
   font-size: 1.25em;

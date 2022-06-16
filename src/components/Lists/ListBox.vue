@@ -1,7 +1,7 @@
 <template>
-  <div class="box">
+  <main class="box">
     <slot></slot>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -15,6 +15,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/config_sass/dark-mode.scss";
 .box {
   margin: 1em;
 }
