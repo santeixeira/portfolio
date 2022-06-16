@@ -15,12 +15,23 @@ export default defineComponent({
   components: { FullContainer, FirstPart, SecondPart, ThirdPart },
   data() {
     return {
-      images: ["image_articles", "image2_articles", "image3_articles"]
+      images: ["image_articles", "image2_articles", "image3_articles"],
+      windowWidth: window.innerHeight
+    };
+  },
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
     };
   },
   methods: {
-    reference(letter: string): void {
-      scrollTo({ top: 900, behavior: "smooth" });
+    reference(): void {
+      if (this.windowWidth > 820) {
+        scrollTo({ top: 900, behavior: "smooth" });
+      }
+      else { 
+        scrollTo({ top: 1800, behavior: "smooth" });
+      }
     }
   }
 });

@@ -17,9 +17,9 @@ export default defineComponent({
   margin: 0em 5em 0;
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 820px) {
   ._container { 
-    margin: 0em 0em 0em !important;
+    margin: 0em 1em 0em !important;
   }
 }
 </style>

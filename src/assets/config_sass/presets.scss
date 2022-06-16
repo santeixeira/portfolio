@@ -55,6 +55,10 @@ select.input-box {
   padding: 8px 32px 8px 16px;
 }
 
+.columns.is-gapless:not(:last-child) {
+  margin-bottom: 6.25em;
+}
+
 .columns .column.is-full h1 {
   font-size: 3em;
   font-weight: 600;
@@ -71,4 +75,29 @@ select.input-box {
   font-size: 1em;
   font-weight: 400;
   margin: 0.25em 3em 0.25em;
+}
+
+
+@media only screen and (max-width: 820px) {
+  .columns.is-gapless:not(:last-child) {
+    margin: 1.75em 0 1.75em;
+  }
+  .columns .column.is-full h1 {
+    font-size: 2.75em;
+    font-weight: 600;
+    margin: 1em 0 1em;
+  }
+  
+  .columns .column h2 {
+    font-size: 2em;
+    font-weight: 500;
+    margin: 0.75em 0 0.75em;
+  }
+  
+  .columns .column p {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0.25em 3em 0.25em;
+  }
+  
 }

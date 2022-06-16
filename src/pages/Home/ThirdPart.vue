@@ -84,7 +84,4 @@ export default defineComponent({
   background-position: center center;
   object-fit: cover;
 }
-.columns.is-gapless:not(:last-child) {
-  margin-bottom: 6.25em;
-}
 </style>
