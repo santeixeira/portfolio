@@ -10,27 +10,29 @@
 import { defineComponent } from "vue";
 import { FullContainer } from "@/components/index";
 import { FirstPart, SecondPart, ThirdPart } from "./index";
+import ScreenDetect from "@/utils/ScreenDetect";
 export default defineComponent({
   name: "HomePage",
   components: { FullContainer, FirstPart, SecondPart, ThirdPart },
   data() {
     return {
       images: ["image_articles", "image2_articles", "image3_articles"],
-      windowWidth: window.innerHeight
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight
     };
   },
   mounted() {
-    window.onresize = () => {
-      this.windowWidth = window.innerWidth;
-    };
+    this.windowWidth = new ScreenDetect().width(this.windowWidth);
   },
   methods: {
     reference(): void {
-      if (this.windowWidth > 820) {
+      const data = this.windowHeight;
+      if (data > 1024) {
         scrollTo({ top: 900, behavior: "smooth" });
-      }
-      else { 
-        scrollTo({ top: 1800, behavior: "smooth" });
+      } else if (data <= 1024 && data > 870) {
+        scrollTo({ top: (this.windowHeight * 1.75), behavior: "smooth" });
+      } else {
+        scrollTo({ top: (this.windowHeight * 1.75), behavior: "smooth" });
       }
     }
   }
@@ -38,5 +40,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "./Home.scss";
 </style>

@@ -2,6 +2,7 @@
 
 .box.dark-mode {
   background-color: $background-secondary !important;
+  transition: 0.5s ease;
 }
 
 main.dark-mode {
@@ -15,6 +16,7 @@ nav.dark-mode {
   color: $gray-scale;
 }
 
-nav.dark-mode + .navbar + .navbar-item  {
-  color: #fff;
+
+a.dark-mode, p.dark-mode, h1.dark-mode {
+  color: $gray-scale;
 }

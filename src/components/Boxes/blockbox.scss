@@ -1,8 +1,10 @@
 @import "@/assets/config_sass/colors.scss";
+
 .block {
   height: 100%;
   width: 100%;
   box-shadow: 0.2em 0.2em 0.2em 0.2em rgba(132, 132, 143, 0.1);
+  border-radius: 6px;
   vertical-align: middle;
   background-color: $gray-scale;
   justify-content: center;
@@ -14,8 +16,8 @@
 .block h1 {
   text-align: -webkit-center !important;
   font-size: 3em;
-  font-weight: 600;
-  padding: 0.5em 0 0.5em;
+  font-weight: 900;
+  padding: 1em 0 0.5em;
 }
 .block p {
   text-align: -webkit-center !important;
@@ -25,6 +27,7 @@
 }
 .block p a {
   color: $primary-color;
+  font-style: italic;
   &:hover {
     color: $primary-color;
     font-weight: 600;

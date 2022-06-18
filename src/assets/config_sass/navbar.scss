@@ -27,13 +27,26 @@ a.navbar-item:focus,
 a.navbar-item:focus-within,
 a.navbar-item:hover {
   background-color: #f3f3f3;
+  margin: 1em 0 1em;
   border-radius: 1em;
   color: #4fb49d;
 }
 
 .navbar-brand img {
-  height: 3.75em;
-  width: 3.75em;
+  height: 2.75em;
+  width: 2.75em;
   max-height: 100%;
-  margin: 1em;
+  margin: 1em 1.75em 1em;
+}
+
+@media only screen and (max-width: 820px) {
+  .navbar-brand img {
+    height: 2.25em;
+    width: 2.25em;
+    max-height: 100%;
+    margin: 1em 1.75em 1em;
+  }
+  .navbar-brand a.nav-burger {
+    margin: 1em 1.75em 1em;
+  }
 }

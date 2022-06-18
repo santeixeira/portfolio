@@ -1,6 +1,12 @@
 import { TimeApplication } from "@/pages/TimeTracker";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import { HomePage, AboutMe, ContentStudies, CurriculumTemplate } from "./index";
+import {
+  HomePage,
+  AboutMe,
+  ContentStudies,
+  CurriculumTemplate,
+  OnDevelopment
+} from "./index";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -29,6 +35,11 @@ const routes: RouteRecordRaw[] = [
         component: TimeApplication
       }
     ]
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "OnDevelopment",
+    component: OnDevelopment
   }
 ];
 

@@ -1,13 +1,7 @@
 <template>
   <ListBox class="side-bar">
-    <h1>
-      <img
-        src="https://cdn.dribbble.com/users/427857/screenshots/16181208/aimm_dribbble_full.png?compress=1&resize=400x300"
-        alt="image_foo"
-        id="image_foo"
-      />
-    </h1>
-    <nav class="mt-6">
+    <button @click="hideBar" class="burger fas fa-bars"></button>
+    <nav>
       <slot></slot>
     </nav>
   </ListBox>
@@ -18,14 +12,31 @@ import { defineComponent } from "vue";
 import { ListBox } from "@/components/index";
 export default defineComponent({
   name: "SideBar",
+  emits: ['hidingBar'],
   components: {
     ListBox
+  },
+  data() {
+    return {
+      hiddenBar: false
+    };
+  },
+  methods: {
+    hideBar() {
+      this.hiddenBar = !this.hiddenBar;
+      this.$emit("hidingBar", this.hiddenBar);
+    }
   }
 });
 </script>
 
 <style lang="scss">
 @import "@/assets/config_sass/colors.scss";
+button.burger {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 .box.side-bar {
   height: 100vh;
   margin-top: 0em !important;

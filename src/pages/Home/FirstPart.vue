@@ -1,5 +1,5 @@
 <template>
-  <BlockBox id="block">
+  <BlockBox id="block" :class="darkMode">
     <h1>Bem vindos, samaritanos!</h1>
     <p>
       Esta é um ótima <strong class="timeset">{{ dateTime() }}</strong> para
@@ -30,6 +30,11 @@ import { CButton, BlockBox } from "@/components/index";
 export default defineComponent({
   name: "FirstPart",
   emits: ["referenced"],
+  data() { 
+    return{
+      darkMode: "dark-mode"
+    }
+  },
   components: { CButton, BlockBox },
   methods: {
     dateTime() {
@@ -59,8 +64,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "./Home.scss";
 @import "@/assets/config_sass/colors.scss";
+@import "@/assets/config_sass/dark-mode.scss";
 #block {
   margin-top: 2em;
   margin-bottom: 2em;

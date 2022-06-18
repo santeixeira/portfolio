@@ -1,10 +1,14 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar"
+    role="navigation"
+    aria-label="main navigation"
+    :class="{ container: widthClass }"
+  >
     <div class="navbar-brand">
-      <img
-        class="not-hover"
-        src="https://t3.ftcdn.net/jpg/02/60/73/30/360_F_260733058_ZI2NUHBoU9qt8upuv1PuJpwvSUbgp0iF.jpg"
-      />
+      <router-link to="/">
+        <img src="@/assets/logo.png" />
+      </router-link>
 
       <a
         role="button"
@@ -21,13 +25,30 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <router-link class="navbar-item" to="/">Página Inicial</router-link>
-        <router-link class="navbar-item" to="/portfolio">Portfólio</router-link>
+        <router-link
+          class="navbar-item"
+          :class="{ 'dark-mode': darkMode }"
+          to="/"
+          >Página Inicial</router-link
+        >
+        <router-link
+          class="navbar-item"
+          :class="{ 'dark-mode': darkMode }"
+          to="/portfolio"
+          >Portfólio</router-link
+        >
 
-        <router-link class="navbar-item" to="/estudos">Estudos</router-link>
+        <router-link
+          class="navbar-item"
+          :class="{ 'dark-mode': darkMode }"
+          to="/estudos"
+          >Estudos</router-link
+        >
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> Artigos e Documentos </a>
+          <a class="navbar-link" :class="{ 'dark-mode': darkMode }">
+            Artigos e Documentos
+          </a>
 
           <div class="navbar-dropdown">
             <a class="navbar-item"> Notícias </a>
@@ -51,6 +72,7 @@
 </template>
 
 <script lang="ts">
+import ScreenDetect from "@/utils/ScreenDetect";
 import { defineComponent } from "vue";
 import { ToggleButton } from "../index";
 export default defineComponent({
@@ -59,13 +81,25 @@ export default defineComponent({
   emits: ["alteredTheme"],
   data() {
     return {
-      darkMode: false
+      darkMode: false,
+      ariaHidden: true,
+      widthClass: false,
+      windowWidth: innerWidth
     };
+  },
+  mounted() {
+    this.widthClass = new ScreenDetect().mounted(
+      this.windowWidth,
+      this.widthClass
+    );
   },
   methods: {
     alterTheme(): void {
       this.darkMode = !this.darkMode;
       this.$emit("alteredTheme", this.darkMode);
+    },
+    hiddenBurger() {
+      document.getElementById("one")?.ariaHidden;
     }
   }
 });

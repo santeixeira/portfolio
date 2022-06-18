@@ -35,7 +35,7 @@ export default defineComponent({
   data() {
     return {
       description: "",
-      typePomodoro: ""
+      typePomodoro: "",
     };
   },
   methods: {

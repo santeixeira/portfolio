@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="columns is-gapless">
-    <div class="column is-8">
+    <div class="column is-8" >
       <h2>Teorema de Bayes</h2>
       <p>
         In probability theory and statistics, Bayes' theorem, named after Thomas
@@ -58,9 +58,15 @@ export default defineComponent({
   },
   data() {
     return {
-      images: ["image_articles", "image2_articles", "image3_articles"]
+      images: ["image_articles", "image2_articles", "image3_articles"],
+      windowWidth: window.innerHeight
     };
-  }
+  },
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth;
+    };
+  },
 });
 </script>
 

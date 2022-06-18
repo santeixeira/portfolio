@@ -15,12 +15,12 @@
               <span>San Thiago Teixeira</span>
             </li>
             <li>
-              <i class="fas fa-user"></i>
-              <span>github.com/santeixeira</span>
+              <i class="fa-brands fa-github"></i>
+              <span>Github</span>
             </li>
             <li>
-              <i class="fas fa-user"></i>
-              <span>linkedin.com/user/santeixeira</span>
+              <i class="fa-brands fa-linkedin"></i>
+              <span>Linkedin</span>
             </li>
           </ul>
         </div>
@@ -50,8 +50,8 @@
           <p>
             Já nas hard-skills, utilizei python para criação de programas de
             automatização e optimização da obtenção de cargas e efeitos
-            aeroelasticos da aeronave projetada, tempo de projeto das cargas
-            da aeronave, analisando os dados e repassando em torno de 80% mais
+            aeroelasticos da aeronave projetada, tempo de projeto das cargas da
+            aeronave, analisando os dados e repassando em torno de 80% mais
             rapido.
           </p>
           <h2>Para informações mais sucintas</h2>
@@ -127,5 +127,28 @@ ul.multilines span {
 
 ul.multilines i {
   margin-right: 1em;
+}
+
+@media only screen and (max-width: 820px) {
+  ul.multilines li img[data-v-c5e9a9ac] {
+    box-shadow: 0.1em 0.1em 0.1em 0.1em rgb(40 109 135 / 23%);
+    height: 16.6666em;
+    width: 16.6666em;
+    margin: 1.75em;
+  }
+
+  .multilines[data-v-c5e9a9ac] {
+    margin: 2em 0 0 0em !important;
+    text-align: -webkit-center !important;
+    position: relative;
+  }
+
+  ul.multilines li[data-v-c5e9a9ac] {
+    text-align: -webkit-center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75em;
+  }
 }
 </style>

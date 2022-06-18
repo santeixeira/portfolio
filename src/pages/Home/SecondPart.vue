@@ -1,19 +1,26 @@
 <template>
   <div class="columns is-align-items-center">
     <div class="column is-4">
-      <MiniBoxes :class="images[1]">
-        <h3>Portfólio</h3>
-      </MiniBoxes>
+      <router-link to="/portfolio"
+        ><MiniBoxes :class="images[1]">
+          <h3>Portfólio</h3>
+        </MiniBoxes></router-link
+      >
     </div>
     <div class="column is-4">
-      <MiniBoxes :class="images[2]">
-        <h3>Documentação</h3>
-      </MiniBoxes>
+      <router-link to="/documentacoes">
+        <MiniBoxes :class="images[2]">
+          <h3>Documentação</h3>
+        </MiniBoxes>
+      </router-link>
     </div>
+
     <div class="column is-4">
-      <MiniBoxes :class="images[0]">
-        <h3>Artigos</h3>
-      </MiniBoxes>
+      <router-link to="/artigos">
+        <MiniBoxes :class="images[0]">
+          <h3>Artigos</h3>
+        </MiniBoxes>
+      </router-link>
     </div>
   </div>
 </template>
