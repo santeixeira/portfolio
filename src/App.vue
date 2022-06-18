@@ -1,10 +1,10 @@
 <template>
   <main :class="{ 'dark-mode': darkMode }">
     <NavBar @altered-theme="alterTheme" :class="{ 'dark-mode': darkMode }" />
-    <ContentSlot
-      ><router-view :class="{ 'dark-mode': darkMode }"
+    <ContentSlot :class="{ 'dark-mode': darkMode }"
+      ><router-view 
     /></ContentSlot>
-    <FooterBar />
+    <FooterBar :class="{ 'dark-mode': darkMode }"/>
   </main>
 </template>
 

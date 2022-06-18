@@ -1,9 +1,11 @@
 // Formatters
 export { default as FullContainer } from "@/components/FullContainer.vue";
 
-// Buttons
+// Forms
 export { default as CButton } from "@/components/Buttons/CButton.vue";
 export { default as ToggleButton } from "@/components/Buttons/ToggleButton.vue";
+export { default as TextInput } from "@/components/Forms/TextInput.vue";
+export { default as SelectInput } from "@/components/Forms/SelectInput.vue";
 
 // Boxes
 export { default as MiniBoxes } from "@/components/Boxes/MiniBoxes.vue";

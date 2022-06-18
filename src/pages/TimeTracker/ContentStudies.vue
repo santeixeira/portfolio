@@ -69,9 +69,13 @@ export default defineComponent({
 
 <style lang="scss">
 @import "@/assets/config_sass/colors.scss";
-.side-bar.hidden {
-  
+.side-bar.is-1.hidden {
   width: 7em;
+  transition: 0.4s ease;
+  height: 100%;
+}
+
+.side-bar.is-2 {
   transition: 0.4s ease;
   height: 100%;
 }

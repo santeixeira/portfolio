@@ -1,22 +1,65 @@
 @import "./colors.scss";
 
-.box.dark-mode {
-  background-color: $background-secondary !important;
-  transition: 0.5s ease;
+main.dark-mode #block {
+  background-image: $background-terciary !important;
+  transition: 1s ease-in;
+}
+
+main.dark-mode .box, main.dark-mode .block  {
+  background-color: $first-secondary-color;
 }
 
 main.dark-mode {
   background-image: $background-secondary;
   box-shadow: none;
+  transition: 1s ease;
 }
 
 nav.dark-mode {
   background: none;
   box-shadow: none;
   color: $gray-scale;
+  transition: 0.4s ease;
 }
 
-
-a.dark-mode, p.dark-mode, h1.dark-mode {
+main.content-slot.dark-mode .column.is-full h1,
+main.content-slot.dark-mode .columns.is-gapless p,
+main.content-slot.dark-mode .columns.is-gapless h2,
+main.dark-mode .block h1,
+main.dark-mode .block h2,
+main.dark-mode .block p,
+main.dark-mode .box h1,
+main.dark-mode .box h2,
+main.dark-mode .box p,
+main.dark-mode .box strong,
+main.dark-mode button.burger,
+main.dark-mode .input-box i ,
+main.dark-mode .input-box input::placeholder,
+main.dark-mode .input-box select option {
   color: $gray-scale;
+  transition: 0.4s ease-in;
+}
+
+main.dark-mode .side-bar-content, main.dark-mode button.burger {
+  color: $gray-scale;
+  &:hover {
+    color: $primary-color;
+    transition: 0.3s ease-in;
+  }
+}
+
+main.dark-mode .input-box select,
+main.dark-mode .input-box input {
+  background-color: #000;
+}
+
+a.dark-mode,
+p.dark-mode,
+h1.dark-mode {
+  color: $gray-scale;
+}
+
+._footer.dark-mode {
+  background: none;
+  padding: 4em 0 0;
 }

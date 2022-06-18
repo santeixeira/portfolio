@@ -3,7 +3,9 @@
   <h2>{{ today }}</h2>
   <div class="content-side">
     <Pomodoro v-for="(task, index) in tasks" :key="index" :task="task" />
-    <ListBox v-if="voidList">Voce nao ta muito produtivo</ListBox>
+    <ListBox v-if="voidList"
+      ><p>Voce não começou nenhum estudo hoje</p></ListBox
+    >
   </div>
 </template>
 

@@ -2,7 +2,7 @@
 
 $content-margin: 2em;
 
-main{
+main {
   --text-color: $background-primary;
   --text-color: $font-color;
 }
@@ -17,25 +17,28 @@ main.dark-mode {
 }
 
 .a4-paper {
-  width: 7in; 
+  width: 7in;
   height: 9.25in;
   margin: 27mm 16mm 27mm 16mm;
   background-color: black;
 }
 
 .input-box {
-  height: 2.75em;
+  display: flex;
   align-items: center;
-  width: 100%;
-  background-color: #f1f1f1;
-  border: 1px solid $gray-scale-2;
-  color: $font-color;
-  font-family: Poppins, sans-serif;
-  border-radius: 10px;
-  align-items: center;
+  height: 50px;
   position: relative;
-  padding: 0 1.75em 0;
-  font-size: 0.95em;
+}
+.input-box input {
+  height: 100%;
+  width: 100%;
+  padding: 0 3em 0;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+
   &::after {
     padding: 0 1em 0;
   }
@@ -46,14 +49,23 @@ main.dark-mode {
   }
 }
 
-select.input-box {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-position: calc(100% - 12px) center !important;
-  background: url("data:image/svg+xml,<svg height='10px' width='10px' viewBox='0 0 16 16' fill='%23000000' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>")
-    no-repeat;
-  padding: 8px 32px 8px 16px;
+.input-box select {
+  height: 100%;
+  width: 100%;
+  padding: 0 3em;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: rgb(126, 126, 126);
+}
+
+.input-box i {
+  position: absolute;
+  padding: 0 1em;
+  color: $first-secondary-color;
+  font-size: 17px;
 }
 
 .columns.is-gapless:not(:last-child) {
@@ -78,7 +90,6 @@ select.input-box {
   margin: 0.25em 3em 0.25em;
 }
 
-
 @media only screen and (max-width: 820px) {
   .columns.is-gapless:not(:last-child) {
     margin: 1.75em 0 1.75em;
@@ -88,17 +99,16 @@ select.input-box {
     font-weight: 600;
     margin: 1em 0 1em;
   }
-  
+
   .columns .column h2 {
     font-size: 2em;
     font-weight: 500;
     margin: 0.75em 0 0.75em;
   }
-  
+
   .columns .column p {
     font-size: 1em;
     font-weight: 400;
     margin: 0.25em 3em 0.25em;
   }
-  
 }

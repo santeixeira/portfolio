@@ -94,6 +94,12 @@ ul.multilines li {
   align-items: center;
   justify-content: center;
   margin-bottom: 0.75em;
+  &:hover {
+    color: $third-secondary-color;
+    font-weight: 800;
+    box-shadow: 0.1em 0.1em 0.1em 0.5em
+      rgba($color: $third-secondary-color, $alpha: 0.025);
+  }
 }
 .block p {
   font-size: 1em;
@@ -117,12 +123,7 @@ ul.multilines span {
   font-size: 1em;
   font-weight: 500;
   cursor: pointer;
-  &:hover {
-    color: $third-secondary-color;
-    font-weight: 800;
-    box-shadow: 0.1em 0.1em 0.1em 0.5em
-      rgba($color: $third-secondary-color, $alpha: 0.025);
-  }
+  
 }
 
 ul.multilines i {

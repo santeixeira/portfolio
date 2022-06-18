@@ -24,6 +24,7 @@ button.button {
     $first-secondary-color
   );
   margin: 1em;
+  border:none;
   border-radius: 1em;
   background-size: 300% 100%;
   border-radius: 50px;

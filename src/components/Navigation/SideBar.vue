@@ -36,14 +36,14 @@ button.burger {
   border: none;
   background: none;
   cursor: pointer;
+  &:hover {
+    color: $primary-color;
+    transition: 0.3s ease-in;
+  }
 }
 .box.side-bar {
-  height: 100vh;
+  height: 100%;
   margin-top: 0em !important;
-}
-
-.box.dark-mode {
-  background-color: $first-secondary-color;
 }
 
 .side-bar-content {
@@ -51,17 +51,19 @@ button.burger {
   margin: 1em 0 1em;
   &:hover {
     color: $primary-color;
+    transition: 0.3s ease-in;
   }
 }
+
 
 .side-bar-content i {
   margin-right: 0.5em;
 }
 
 #image_foo {
-  margin-top: 3em;
-  width: 10em;
-  height: 10em;
+  margin-top: 1em;
+  width: 8em;
+  height: 8em;
   -webkit-border-radius: 50%;
   -webkit-background-clip: padding-box;
   -moz-border-radius: 50%;

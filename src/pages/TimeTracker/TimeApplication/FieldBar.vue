@@ -2,20 +2,20 @@
   <ListBox>
     <div class="columns organize-list">
       <div class="column is-5" role="form" aria-label="Form for new task">
-        <input
-          type="text"
-          class="input-box"
-          placeholder="Nomeia a nova tarefa"
-          v-model="description"
+        <TextInput
+          :id="inputTask"
+          :placeholder="'Informe uma nova tarefa'"
+          :icon="'fas fa-bars-progress'"
+          v-model="inputTask"
         />
       </div>
       <div class="column is-3">
-        <select v-model="typePomodoro" class="input-box">
-          <option disabled value="">Selecione a sprint</option>
+        <SelectInput :icon="'fas fa-bolt'">
+          <option value="" default>Sprint livre</option>
           <option>Sprints 25/5</option>
           <option>Sprints 45/10</option>
           <option>Sprints 50/10</option>
-        </select>
+        </SelectInput>
       </div>
       <div class="column is-4">
         <ListTemporizer @endedTime="end" />
@@ -26,16 +26,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { ListBox } from "@/components/index";
+import { ListBox, TextInput, SelectInput } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
 export default defineComponent({
   name: "FieldBar",
   emits: ["atSaveTask"],
-  components: { ListBox, ListTemporizer },
+  components: { ListBox, ListTemporizer, TextInput, SelectInput },
   data() {
     return {
       description: "",
       typePomodoro: "",
+      inputTask: ""
     };
   },
   methods: {
