@@ -1,10 +1,26 @@
+@import "@/assets/config_sass/colors.scss";
 $duration: 450ms;
 $tileWidth: 250px;
-$tileHeight: ($tileWidth / (16/9));
+$tileHeight: calc($tileWidth / (16/9));
 $iconSize: 50px;
 $growFactor: 1.5;
-$moveLeft: -($tileWidth * ($growFactor - 1) / 2);
-$moveRight: $tileWidth * ($growFactor - 1);
+$moveLeft: calc(0em - $tileWidth * ($growFactor - 1) / 2);
+$moveRight: calc($tileWidth * ($growFactor - 1));
+
+.row::-webkit-scrollbar {
+  width: 1.75em;
+}
+
+.row::-webkit-scrollbar-track {
+  background: $gray-scale;
+  border-radius: 20px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background-color: $gray-scale-2;
+  border-radius: 20px;
+  border: 3px solid $gray-scale;
+}
 
 body,
 html {
@@ -51,7 +67,7 @@ a:hover {
   transition: $duration transform;
   font-size: 0;
   white-space: nowrap;
-  margin: ($tileHeight / 2) 0;
+  margin: calc($tileHeight / 2) 0;
   padding-bottom: 10px; // Account for OS X scroll bar;
 }
 .tile {
@@ -92,19 +108,20 @@ a:hover {
     top: 50%;
     left: 50%;
     display: black;
+    color: #fff;
   }
 
   &:after {
-    margin-top: (-($iconSize / 2));
-    margin-left: (-($iconSize / 2));
+    margin-top: calc((0em - $iconSize / 2));
+    margin-left: calc((0em - $iconSize / 2));
     width: $iconSize;
     height: $iconSize;
-    border: 3px solid #ecf0f1;
+    font-size: 2em;
     line-height: $iconSize;
     text-align: center;
-    border-radius: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: none;
     z-index: 1;
+    
   }
   &:before {
     content: "";
@@ -124,6 +141,7 @@ a:hover {
   position: absolute;
   bottom: 0;
   padding: 10px;
+  color: #fff
 }
 .row__inner:hover {
   transform: translate3d($moveLeft, 0, 0);

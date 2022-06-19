@@ -1,14 +1,13 @@
 <template>
   <div class="tile">
     <div class="tile__media">
-      <img
-        class="tile__img"
-        src="https://assets-global.website-files.com/5b5729421aca332c60585f78/61ba503872080311dde1ea56_long-form-landing-page-examples.png"
-        alt=""
-      />
+      <img class="tile__img" :src="imgs || foo" alt="" />
     </div>
     <div class="tile__details">
-      <div class="tile__title"><slot></slot></div>
+      <h1 :title="content"></h1>
+      <div class="tile__title">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -17,7 +16,13 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "CarouselItem"
+  name: "CarouselItem",
+  props: ["imgs", "content"],
+  data() {
+    return {
+      foo: "https://tb-lb.sb-cd.com/t/8612534/8/6/w:1280/t7-enh/pov-valentina-fucked-gets-a.jpg"
+    };
+  }
 });
 </script>
 

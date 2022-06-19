@@ -14,11 +14,11 @@
               <i class="fas fa-user"></i>
               <span>San Thiago Teixeira</span>
             </li>
-            <li>
-              <i class="fa-brands fa-github"></i>
-              <span>Github</span>
+            <li @click="redirect(urls.github)">
+                <i class="fa-brands fa-github"></i>
+                <span>Github</span>
             </li>
-            <li>
+            <li @click="redirect(urls.linkedin)">
               <i class="fa-brands fa-linkedin"></i>
               <span>Linkedin</span>
             </li>
@@ -29,7 +29,7 @@
           <p>
             Sou um programador, amante do progresso e admirador de muitos
             esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou
-            estudante de Ciencia da Computação no Instituto Federal do Ceara.
+            estudante de Ciência da Computação no Instituto Federal do Ceará.
             Almejo a consistência nos estudos, na academia (tanto fisica quanto
             intelectual) e na vida.
           </p>
@@ -73,7 +73,21 @@ import { Certificates, Portfolio } from "./index";
 export default defineComponent({
   name: "AboutMe",
   components: { BlockBox, FullContainer, CButton, Certificates, Portfolio },
-  methods: {}
+  data () {
+    return {
+      urls: {
+        whatsapp: "https://wa.me/5585996687731",
+        instagram: "https://www.instagram.com/santeixeirad/",
+        github: "https://github.com/santeixeira",
+        linkedin: "https://www.linkedin.com/in/san-thiago-teixeira-b3380a1a8/",
+      }
+    }
+  },
+  methods: {
+    redirect(url: string): void {
+      window.open(url);
+    }
+  }
 });
 </script>
 
@@ -158,6 +172,6 @@ ul.multilines i {
     font-size: 1.5em;
     margin: 2em 0 0em;
     text-align: center;
-}
+  }
 }
 </style>
