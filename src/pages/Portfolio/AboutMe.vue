@@ -123,7 +123,6 @@ ul.multilines span {
   font-size: 1em;
   font-weight: 500;
   cursor: pointer;
-  
 }
 
 ul.multilines i {
@@ -139,7 +138,7 @@ ul.multilines i {
   }
 
   .multilines[data-v-c5e9a9ac] {
-    margin: 2em 0 0 0em !important;
+    margin: 0 !important;
     text-align: -webkit-center !important;
     position: relative;
   }
@@ -151,5 +150,14 @@ ul.multilines i {
     justify-content: center;
     margin-bottom: 0.75em;
   }
+  .block p {
+    padding: 0;
+  }
+
+  .block h2[data-v-c5e9a9ac] {
+    font-size: 1.5em;
+    margin: 2em 0 0em;
+    text-align: center;
+}
 }
 </style>

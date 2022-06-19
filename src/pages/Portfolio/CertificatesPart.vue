@@ -6,36 +6,18 @@
         </div>
     </div>
     <div class="columns">
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
-        <div class="column is-2">
-            <MiniBoxes></MiniBoxes>
-        </div>
+        <Carousel />
     </div>
   </FullContainer>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { FullContainer } from "@/components/index";
-import MiniBoxes from "@/components/Boxes/MiniBoxes.vue";
+import { FullContainer, Carousel } from "@/components/index";
 
 export default defineComponent({
   name: "CetificatesPart",
-  components: { FullContainer, MiniBoxes }
+  components: { FullContainer, Carousel }
 });
 </script>
 

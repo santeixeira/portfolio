@@ -35,12 +35,13 @@ main.dark-mode .box strong,
 main.dark-mode button.burger,
 main.dark-mode .input-box i ,
 main.dark-mode .input-box input::placeholder,
-main.dark-mode .input-box select option {
+main.dark-mode .input-box select{
   color: $gray-scale;
   transition: 0.4s ease-in;
 }
 
-main.dark-mode .side-bar-content, main.dark-mode button.burger {
+main.dark-mode .side-bar-content, main.dark-mode button.burger,
+main.dark-mode ul.multilines li {
   color: $gray-scale;
   &:hover {
     color: $primary-color;

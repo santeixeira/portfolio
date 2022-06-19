@@ -43,6 +43,7 @@ export default defineComponent({
 @import "@/assets/config_sass/presets.scss";
 @import "@/assets/config_sass/colors.scss";
 $height-side: calc(100vh - $content-margin);
+
 .content-side {
   overflow-y: auto;
   height: $height-side;

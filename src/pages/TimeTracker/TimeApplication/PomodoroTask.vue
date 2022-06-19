@@ -1,8 +1,8 @@
 <template>
   <ListBox >
     <div class="columns" >
-      <div class="column is-5"><p>{{ task.description }}</p></div>
-      <div class="column"><p>{{ task.typePomodoro }}</p></div>
+      <div class="column is-5"><p>{{ task.description || "Sem descrição" }}</p></div>
+      <div class="column"><p>{{ task.typePomodoro || "Sprint livre" }}</p></div>
       <div class="column">
         <Cronometer :timeSeconds="task.timeSeconds" />
       </div>

@@ -18,8 +18,8 @@ export default defineComponent({
   components: {
     NavBar,
     ContentSlot,
-    FooterBar
-  },
+    FooterBar,
+},
   props: ['dark-mode'],
   data() {
     return {

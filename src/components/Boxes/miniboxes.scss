@@ -3,7 +3,7 @@ $box-width: auto;
 
 .boxes {
   justify-content: space-between;
-  display: flex;
+  display: grid;
   position: relative;
 }
 .box {
@@ -17,5 +17,5 @@ $box-width: auto;
   max-width: $box-width !important;
   object-fit: cover;
   overflow: hidden;
-  position: absolute;
+  position: relative;
 }
