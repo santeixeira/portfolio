@@ -4,9 +4,9 @@
       <div class="columns">
         <div id="column1" class="column is-4 is-multiline">
           <ul class="menu">
-            <EnrollPart />
-            <ContactPart />
-            <LangPart />
+            <Enroll />
+            <Contact />
+            <Lang />
           </ul>
         </div>
         <div class="column" id="titulo">
@@ -35,13 +35,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CurriculumPaper } from "@/components/index";
-import FirstPart from "./Curriculum/FirstPart.vue";
-import EnrollPart from "./Curriculum/EnrollPart.vue";
-import ContactPart from "./Curriculum/ContactPart.vue";
-import LangPart from "./Curriculum/LangPart.vue";
+import { Enroll, Contact, Lang } from "./index";
 export default defineComponent({
   name: "CurriculumTemplate",
-  components: { CurriculumPaper, FirstPart, EnrollPart, ContactPart, LangPart },
+  components: { CurriculumPaper, Enroll, Contact, Lang },
   data() {
     return {
       dadosPessoais: {
