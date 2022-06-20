@@ -1,12 +1,12 @@
 <template>
   <ListBox>
-    <div class="columns organize-list">
-      <div class="column is-5" role="form" aria-label="Form for new task">
+    <div class="columns organize-list is-mobile">
+      <div class="column is-3" role="form" aria-label="Form for new task">
         <TextInput
           :id="inputTask"
           :placeholder="'Informe uma nova tarefa'"
           :icon="'fas fa-bars-progress'"
-          v-model="inputTask"
+          v-model="description"
         />
       </div>
       <div class="column is-3">
@@ -17,7 +17,12 @@
           <option>Sprints 50/10</option>
         </SelectInput>
       </div>
-      <div class="column is-4">
+      <div class="column is-3">
+        <SelectInput :icon="'fas fa-bolt'">
+          <option value="" default>Sprint livre</option>
+        </SelectInput>
+      </div>
+      <div class="column is-3">
         <ListTemporizer @endedTime="end" />
       </div>
     </div>

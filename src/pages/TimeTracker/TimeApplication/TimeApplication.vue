@@ -1,4 +1,5 @@
 <template>
+  <input type="checkbox"/>test
   <FieldBar @atSaveTask="saveTask" />
   <h2>{{ today }}</h2>
   <div class="content-side">

@@ -34,8 +34,8 @@
             Sou um programador, amante do progresso e admirador de muitos
             esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou
             estudante de Ciência da Computação no Instituto Federal do Ceará.
-            Almejo a consistência nos estudos, na academia (tanto fisica quanto
-            intelectual) e na vida.
+            Almejo a consistência nos estudos, na academia (tanto física quanto
+            institucional) e na vida.
           </p>
           <p>
             Vim da engenharia, onde cursei durante 2 anos e meio Engenharia
@@ -54,9 +54,9 @@
           <p>
             Já nas hard-skills, utilizei python para criação de programas de
             automatização e optimização da obtenção de cargas e efeitos
-            aeroelasticos da aeronave projetada, tempo de projeto das cargas da
+            aeroelásticos da aeronave projetada, tempo de projeto das cargas da
             aeronave, analisando os dados e repassando em torno de 80% mais
-            rapido.
+            rápido.
           </p>
           <h2>Para informações mais sucintas</h2>
           <router-link to="/curriculum"
@@ -80,7 +80,7 @@ export default defineComponent({
   components: { BlockBox, FullContainer, CButton, Certificates, Portfolio },
   data() {
     return {
-      urls: links.urls,
+      urls: links.urls
     };
   },
   methods: {

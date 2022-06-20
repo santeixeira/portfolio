@@ -36,7 +36,7 @@ main.dark-mode button.burger,
 main.dark-mode .input-box i ,
 main.dark-mode .input-box input,
 main.dark-mode .input-box input::placeholder,
-main.dark-mode .input-box select{
+main.dark-mode .input-box select {
   color: $gray-scale;
   transition: 0.4s ease-in;
 }
@@ -64,4 +64,9 @@ h1.dark-mode {
 ._footer.dark-mode {
   background: none;
   padding: 4em 0 0;
+}
+
+main.dark-mode table th,
+main.dark-mode table tbody {
+  color: $gray-scale;
 }

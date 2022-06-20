@@ -20,19 +20,19 @@
               <span :hidden="hiddenBar">Pomodoro</span>
             </div>
           </router-link>
-          <router-link to="">
+          <router-link to="/a-fazeres">
             <div class="side-bar-content">
               <i class="fas fa-list-check"></i>
               <span :hidden="hiddenBar">À fazeres</span>
             </div>
           </router-link>
-          <router-link to="">
+          <router-link to="/relatorios">
             <div class="side-bar-content">
               <i class="fas fa-file"></i>
               <span :hidden="hiddenBar">Relatórios</span>
             </div>
           </router-link>
-          <router-link to="">
+          <router-link to="/historico">
             <div class="side-bar-content">
               <i class="fas fa-timeline"></i>
               <span :hidden="hiddenBar">Histórico</span>
