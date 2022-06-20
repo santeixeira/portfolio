@@ -11,4 +11,17 @@ export default class ScreenDetect {
     widthClass = windowWidth > 1920 ? true : false;
     return widthClass;
   }
+
+  darkTheme(onChangeVariable: boolean) {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      onChangeVariable = true;
+    }
+    else {
+      onChangeVariable = false;
+    }
+    return onChangeVariable;
+  }
 }

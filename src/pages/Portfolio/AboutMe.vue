@@ -10,13 +10,17 @@
                 alt=""
               />
             </li>
-            <li>
+            <li @click="redirect(urls.instagram)">
               <i class="fas fa-user"></i>
               <span>San Thiago Teixeira</span>
             </li>
+            <li @click="redirect(urls.whatsapp)">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Contato</span>
+            </li>
             <li @click="redirect(urls.github)">
-                <i class="fa-brands fa-github"></i>
-                <span>Github</span>
+              <i class="fa-brands fa-github"></i>
+              <span>Github</span>
             </li>
             <li @click="redirect(urls.linkedin)">
               <i class="fa-brands fa-linkedin"></i>
@@ -70,22 +74,18 @@
 import { defineComponent } from "vue";
 import { BlockBox, FullContainer, CButton } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
+import { Methods, links } from "@/utils/index";
 export default defineComponent({
   name: "AboutMe",
   components: { BlockBox, FullContainer, CButton, Certificates, Portfolio },
-  data () {
+  data() {
     return {
-      urls: {
-        whatsapp: "https://wa.me/5585996687731",
-        instagram: "https://www.instagram.com/santeixeirad/",
-        github: "https://github.com/santeixeira",
-        linkedin: "https://www.linkedin.com/in/san-thiago-teixeira-b3380a1a8/",
-      }
-    }
+      urls: links.urls,
+    };
   },
   methods: {
     redirect(url: string): void {
-      window.open(url);
+      new Methods().redirect(url);
     }
   }
 });

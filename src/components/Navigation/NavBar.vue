@@ -44,6 +44,12 @@
           to="/estudos"
           >Estudos</router-link
         >
+        <router-link
+          class="navbar-item"
+          :class="{ 'dark-mode': darkMode }"
+          to="/estudos"
+          >Roadmap</router-link
+        >
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" :class="{ 'dark-mode': darkMode }">
@@ -55,7 +61,7 @@
             <a class="navbar-item"> Artigos </a>
             <a class="navbar-item"> Documentações </a>
             <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
+            <a class="navbar-item"> Entre em contato comigo </a>
           </div>
         </div>
       </div>
@@ -72,9 +78,12 @@
 </template>
 
 <script lang="ts">
-import ScreenDetect from "@/utils/ScreenDetect";
+import { ScreenDetect } from "@/utils/index";
 import { defineComponent } from "vue";
 import { ToggleButton } from "../index";
+
+const sc = new ScreenDetect();
+
 export default defineComponent({
   name: "NavBar",
   components: { ToggleButton },
@@ -88,10 +97,8 @@ export default defineComponent({
     };
   },
   mounted() {
-    this.widthClass = new ScreenDetect().mounted(
-      this.windowWidth,
-      this.widthClass
-    );
+    this.widthClass = sc.mounted(this.windowWidth, this.widthClass);
+    this.darkMode = sc.darkTheme(this.darkMode);
   },
   methods: {
     alterTheme(): void {

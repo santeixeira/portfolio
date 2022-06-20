@@ -2,9 +2,9 @@
   <main :class="{ 'dark-mode': darkMode }">
     <NavBar @altered-theme="alterTheme" :class="{ 'dark-mode': darkMode }" />
     <ContentSlot :class="{ 'dark-mode': darkMode }"
-      ><router-view 
+      ><router-view
     /></ContentSlot>
-    <FooterBar :class="{ 'dark-mode': darkMode }"/>
+    <FooterBar :class="{ 'dark-mode': darkMode }" />
   </main>
 </template>
 
@@ -12,15 +12,18 @@
 import { defineComponent } from "vue";
 import { NavBar, FooterBar } from "@/components/index";
 import ContentSlot from "@/components/ContentSlot.vue";
+import { ScreenDetect } from "@/utils/index";
+
+const sc = new ScreenDetect();
 
 export default defineComponent({
   name: "FieldBar",
   components: {
     NavBar,
     ContentSlot,
-    FooterBar,
-},
-  props: ['dark-mode'],
+    FooterBar
+  },
+  props: ["dark-mode"],
   data() {
     return {
       darkMode: false
@@ -30,6 +33,9 @@ export default defineComponent({
     alterTheme(darkModeActive: boolean) {
       this.darkMode = darkModeActive;
     }
+  },
+  mounted() {
+    this.darkMode = sc.darkTheme(this.darkMode);
   }
 });
 </script>
