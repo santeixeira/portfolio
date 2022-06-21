@@ -21,7 +21,7 @@ export default defineComponent({
   props: ["imgs", "content"],
   data() {
     return {
-      foo: "https://tb-lb.sb-cd.com/t/8612534/8/6/w:1280/t7-enh/pov-valentina-fucked-gets-a.jpg"
+      foo: "@/assets/images/foo3.webp"
     };
   },
   methods: {
