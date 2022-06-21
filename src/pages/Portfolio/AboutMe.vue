@@ -59,9 +59,16 @@
             rápido.
           </p>
           <h2>Para informações mais sucintas</h2>
-          <router-link to="/curriculum"
-            ><CButton>Conferir curriculo</CButton></router-link
-          >
+          <CButton @click="isOpen = true">Conferir curriculo</CButton>
+
+          <Modal :open="isOpen" @close="isOpen = !isOpen">
+            <div class="columns is-centered">
+              <CurriculumTemplate />
+            </div>
+            <div class="columns is-centered">
+              <CButton @click="''">Download</CButton>
+            </div>
+          </Modal>
         </div>
       </div>
     </BlockBox>
@@ -71,13 +78,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { BlockBox, FullContainer, CButton } from "@/components/index";
+import { defineComponent, ref } from "vue";
+import { BlockBox, FullContainer, CButton, Modal } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
 import { Methods, links } from "@/utils/index";
+import CurriculumTemplate from "./CurriculumTemplate.vue";
 export default defineComponent({
   name: "AboutMe",
-  components: { BlockBox, FullContainer, CButton, Certificates, Portfolio },
+  components: {
+    BlockBox,
+    FullContainer,
+    CButton,
+    Modal,
+    Certificates,
+    Portfolio,
+    CurriculumTemplate
+  },
+  setup() {
+    const isOpen = ref(false);
+    return { isOpen };
+  },
   data() {
     return {
       urls: links.urls
@@ -86,13 +106,17 @@ export default defineComponent({
   methods: {
     redirect(url: string): void {
       new Methods().redirect(url);
-    }
+    },
+    
   }
 });
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/config_sass/colors.scss";
+.vue-modal-content.a4-paper {
+  margin: 1em !important;
+}
 .multilines {
   margin: 2em 0 0 2em !important;
   text-align: -webkit-center !important;

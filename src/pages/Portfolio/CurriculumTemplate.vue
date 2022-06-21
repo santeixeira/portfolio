@@ -25,9 +25,17 @@
               </svg>
             </div>
           </div>
+          <div id="objective" class="columns">
+            <div class="column"><Objective class="part-2" /></div>
+          </div>
+          <div id="objective" class="columns">
+            <div class="column"><Experiences class="part-2" /></div>
+          </div>
+          <div id="objective" class="columns">
+            <div class="column"><Skills class="part-2" /></div>
+          </div>
         </div>
       </div>
-      <FirstPart></FirstPart>
     </div>
   </CurriculumPaper>
 </template>
@@ -35,10 +43,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CurriculumPaper } from "@/components/index";
-import { Enroll, Contact, Lang } from "./index";
+import { Enroll, Contact, Lang, Objective, Experiences, Skills } from "./index";
 export default defineComponent({
   name: "CurriculumTemplate",
-  components: { CurriculumPaper, Enroll, Contact, Lang },
+  components: {
+    CurriculumPaper,
+    Enroll,
+    Contact,
+    Lang,
+    Skills,
+    Objective,
+    Experiences
+  },
   data() {
     return {
       dadosPessoais: {
@@ -51,6 +67,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+#objective {
+  margin-top: 1em;
+}
+.part-2 h2.subtitulo {
+  text-align: start !important;
+}
+li.part-2::marker {
+  content: "";
+}
+
 h2.subtitulo {
   text-align: end !important;
   color: #000 !important;
