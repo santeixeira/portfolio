@@ -4,6 +4,7 @@
       <h1>Novidades da semana</h1>
     </div>
   </div>
+  
   <div class="columns is-gapless">
     <div class="column is-4">
       <MiniBoxes :class="images[0]"></MiniBoxes>
@@ -51,15 +52,21 @@
 import { defineComponent } from "vue";
 import { MiniBoxes } from "@/components/index";
 
+import LandingCarousel from "@/components/misc/Carousel/LandingCarousel.vue";
+
 export default defineComponent({
   name: "ThirdPart",
   components: {
-    MiniBoxes
+    MiniBoxes,
   },
   data() {
     return {
       images: ["image_articles", "image2_articles", "image3_articles"],
-      windowWidth: window.innerHeight
+      windowWidth: window.innerHeight,
+      slides: [
+        "https://tn.txxx.tube/contents/videos_sources/16714000/16714035/screenshots/1.jpg",
+        "https://picsum.photos/id/1033/900/400",
+      ]
     };
   },
   mounted() {

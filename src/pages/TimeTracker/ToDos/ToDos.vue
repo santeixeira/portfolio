@@ -38,7 +38,8 @@
 <script lang="ts">
 import { ListBox, CButton, TextInput } from "@/components/index";
 import { defineComponent } from "vue";
-import IProject from "@/interface/IProject";
+import { useStore } from "@/store";
+import { computed } from "@vue/reactivity";
 
 export default defineComponent({
   name: "ToDos",
@@ -49,19 +50,21 @@ export default defineComponent({
   },
   data() {
     return {
-      taskName: "",
-      projects: [] as IProject[]
+      taskName: ""
     };
   },
   methods: {
     save() {
-      const project: IProject = {
-        name: this.taskName,
-        id: new Date().getMilliseconds()
-      };
-      this.projects.push(project);
+      this.store.commit("POST_PROJECT", this.taskName);
       this.taskName = "";
     }
+  },
+  setup() {
+    const store = useStore();
+    return {
+      store,
+      projects: computed(() => store.state.projects)
+    };
   }
 });
 </script>
@@ -75,6 +78,6 @@ export default defineComponent({
   align-items: center;
 }
 .table {
-  background: none!important;
+  background: none !important;
 }
 </style>

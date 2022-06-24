@@ -1,5 +1,6 @@
 <template>
   <main :class="{ 'dark-mode': darkMode }">
+  
     <NavBar @altered-theme="alterTheme" :class="{ 'dark-mode': darkMode }" />
     <ContentSlot :class="{ 'dark-mode': darkMode }"
       ><router-view
@@ -21,8 +22,9 @@ export default defineComponent({
   components: {
     NavBar,
     ContentSlot,
-    FooterBar
-  },
+    FooterBar,
+ 
+},
   props: ["dark-mode"],
   data() {
     return {

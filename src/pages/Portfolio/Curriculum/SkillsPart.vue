@@ -33,7 +33,7 @@ export default defineComponent({
     return {
       skills: [
         "Node.js",
-        "React.js",
+        "Vue.js",
         "Adonis.js",
         "MySQL",
         "PostgreSQL",

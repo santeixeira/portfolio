@@ -79,10 +79,10 @@ export default defineComponent({
         periodo: "11/2021 - 04/2022"
       },
       secondExperience: {
-        desc: "Responsável pelo desenvolvimento de microsserviços de atividades entre empresas e candidatos, ligando habilidades requeridas pelas vagas entre ambos, onde foi criada Dashboard usando React.js e toda a logica de programação com Adonis.js em sua versão com TypeScript. Também atuo no CI/CD de deploy.",
+        desc: "Responsável pelo desenvolvimento de microsserviços de atividades entre empresas e candidatos, ligando habilidades requeridas pelas vagas entre ambos, onde foi criada Dashboard usando Vue.js e toda a lógica de programação com Adonis.js em sua versão com TypeScript. Também atuo no CI/CD de deploy.",
         posicao: "Desenvolvedor Full Stack Júnior",
         empresa: "Jobi Recrutamento e Seleção LTDA",
-        stack: "Adonis.js (Node.js), MySQL, React.js, TypeScript, Docker",
+        stack: "Adonis.js (Node.js), MySQL, Vue.js, TypeScript, Docker",
         periodo: "03/2022 - Atual"
       }
     };

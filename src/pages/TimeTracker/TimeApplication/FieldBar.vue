@@ -3,24 +3,35 @@
     <div class="columns organize-list is-mobile">
       <div class="column is-3" role="form" aria-label="Form for new task">
         <TextInput
-          :id="inputTask"
+          :id="description"
           :placeholder="'Informe uma nova tarefa'"
           :icon="'fas fa-bars-progress'"
           v-model="description"
         />
       </div>
       <div class="column is-3">
-        <SelectInput :icon="'fas fa-bolt'">
-          <option value="" default>Sprint livre</option>
-          <option>Sprints 25/5</option>
-          <option>Sprints 45/10</option>
-          <option>Sprints 50/10</option>
+        <SelectInput
+          :icon="'fas fa-bolt'"
+          v-model="typePomodoro"
+          :placeholder="'Informe uma nova tarefa'"
+          :options="options"
+        >
         </SelectInput>
       </div>
       <div class="column is-3">
-        <SelectInput :icon="'fas fa-bolt'">
-          <option value="" default>Sprint livre</option>
-        </SelectInput>
+        <div class="input-box">
+          <i class="fas fa-diagram-project"></i>
+          <select v-model="idProject">
+            <option value="" selected>Selecione o projeto</option>
+            <option
+              :value="project.id"
+              v-for="project in projects"
+              :key="project.id"
+            >
+              {{ project.name }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="column is-3">
         <ListTemporizer @endedTime="end" />
@@ -33,6 +44,10 @@
 import { defineComponent } from "vue";
 import { ListBox, TextInput, SelectInput } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
+import { useStore } from "vuex";
+import IProject from "@/interface/IProject";
+import { key } from "@/store";
+import { computed } from "@vue/reactivity";
 export default defineComponent({
   name: "FieldBar",
   emits: ["atSaveTask"],
@@ -41,7 +56,14 @@ export default defineComponent({
     return {
       description: "",
       typePomodoro: "",
-      inputTask: ""
+      idProject: 0,
+      options: [
+        "Sprint livre",
+        "Sprints 25/5",
+        "Sprints 45/10",
+        "Sprints 50/10"
+      ],
+      projectsOption: [] as IProject[]
     };
   },
   methods: {
@@ -49,9 +71,18 @@ export default defineComponent({
       this.$emit("atSaveTask", {
         timeSeconds: timePassed,
         description: this.description,
-        typePomodoro: this.typePomodoro
+        typePomodoro: this.typePomodoro,
+        project: this.projects.find((proj) => proj.id == this.idProject),
+        
       });
+      this.description = "";
     }
+  },
+  setup() {
+    const store = useStore(key);
+    return {
+      projects: computed(() => store.state.projects)
+    };
   }
 });
 </script>

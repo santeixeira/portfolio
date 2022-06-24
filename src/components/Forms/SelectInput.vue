@@ -1,16 +1,24 @@
 <template>
   <div class="input-box">
-    <i v-bind:class="icon"></i>
-    <select :placeholder="placeholder" required>
-      <slot></slot>
+    <i :class="icon"></i>
+    <select v-model="theModel" required>
+      <option value="" selected>{{ placeholder }}</option>
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option"
+      >
+        {{ options[index] }}
+      </option>
     </select>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 export default defineComponent({
-  // eslint-disable-next-line vue/multi-word-component-names
+  // USAR SOMENTE EM CASO DE PROPS ESTATICAS
   name: "SelectRegister",
+  emits: ["update:modelValue"],
   props: {
     placeholder: {
       type: String
@@ -19,14 +27,20 @@ export default defineComponent({
       type: String
     },
     options: {
-      type: [Array, Object, Function],
-      required: false,
-      default: () => []
-    }
+      type: Array,
+      required: true
+    } 
+  },
+  setup(props, { emit }) {
+    const theModel = computed({
+      get: () => props.options as string[],
+      set: (value) => emit("update:modelValue", value)
+    });
+    return { theModel };
   }
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "@/assets/config_sass/presets.scss";
 </style>

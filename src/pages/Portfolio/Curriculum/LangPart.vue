@@ -44,10 +44,10 @@ export default defineComponent({
         idioma: "Inglês",
         nivel: "Avançado"
       },
-      segundaLingua: {
-        idioma: "Francês",
-        nivel: "Intermediário"
-      }
+      // segundaLingua: {
+      //   idioma: "Francês",
+      //   nivel: "Intermediário"
+      // }
     };
   }
 });

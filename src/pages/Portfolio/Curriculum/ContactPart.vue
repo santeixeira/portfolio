@@ -13,23 +13,23 @@
           <rect width="41" height="3" fill="#404F66" />
         </svg>
       </li>
-      <li>
+      <li class="clicker" @click="redirect(urls.email)">
         <i class="fas fa-at"></i>
         <span>{{ contatos.email }}</span>
       </li>
-      <li>
+      <li class="clicker" @click="redirect(urls.github)">
         <i class="fa-brands fa-github"></i>
         <span>
           {{ contatos.github }}
         </span>
       </li>
-      <li>
+      <li class="clicker" @click="redirect(urls.linkedin)">
         <i class="fa-brands fa-linkedin"></i>
         <span>
           {{ contatos.linkedin }}
         </span>
       </li>
-      <li>
+      <li class="clicker" @click="redirect(urls.whatsapp)">
         <i class="fa-brands fa-whatsapp"></i>
         <span>
           {{ contatos.whatsapp }}
@@ -40,6 +40,7 @@
 </template>
 
 <script lang="ts">
+import Methods from "@/utils/Methods";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -51,8 +52,22 @@ export default defineComponent({
         github: "github.com/santeixeira",
         linkedin: "Linkedin",
         whatsapp: "Whatsapp"
+      },
+      urls: {
+        whatsapp: "https://wa.me/5585996687731",
+        email: "mailto:jbsanthiago@gmail.com",
+        github: "https://github.com/santeixeira",
+        linkedin: "https://www.linkedin.com/in/san-thiago-teixeira-b3380a1a8/"
       }
     };
+  },
+  methods: {
+    redirect(url: string): void {
+      new Methods().redirect(url);
+    }
   }
 });
 </script>
+
+<style scoped>
+.clicker {cursor: pointer;}</style>

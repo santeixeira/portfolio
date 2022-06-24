@@ -62,7 +62,7 @@
           <CButton @click="isOpen = true">Conferir curriculo</CButton>
 
           <Modal :open="isOpen" @close="isOpen = !isOpen">
-            <div class="columns is-centered">
+            <div id="curriculum" class="columns is-centered">
               <CurriculumTemplate />
             </div>
             <div class="columns is-centered">
@@ -83,6 +83,7 @@ import { BlockBox, FullContainer, CButton, Modal } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
 import { Methods, links } from "@/utils/index";
 import CurriculumTemplate from "./CurriculumTemplate.vue";
+
 export default defineComponent({
   name: "AboutMe",
   components: {
