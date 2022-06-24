@@ -2,6 +2,35 @@
 
 $content-margin: 2em;
 
+$height-side: calc(100vh - $content-margin);
+
+.content-side {
+  overflow-y: auto;
+  height: $height-side;
+  box-shadow: 0.2em 0.2em 0.2em 0.2em
+    rgba($color: $third-secondary-color, $alpha: 0.025);
+}
+.content-side::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+.content-side::-webkit-scrollbar-track {
+  background: $gray-scale;
+  border-radius: 20px;
+}
+
+.content-side::-webkit-scrollbar-thumb {
+  background-color: $gray-scale-2;
+  border-radius: 20px;
+  border: 3px solid $gray-scale;
+}
+
+.side-bar {
+  height: $height-side;
+  position: relative;
+  background: none;
+}
+
 main {
   --text-color: $background-primary;
   --text-color: $font-color;
@@ -33,7 +62,7 @@ main.dark-mode {
 .input-box input {
   height: 100%;
   width: 100%;
-  padding: 0 3em 0;
+  padding: 0 0em 0 2.75em;
   font-size: 16px;
   font-weight: 500;
   border: 2px solid rgba(0, 0, 0, 0.2);
@@ -53,7 +82,7 @@ main.dark-mode {
 .input-box select {
   height: 100%;
   width: 100%;
-  padding: 0 3em;
+  padding: 0 0em 0 2.75em;
   font-size: 16px;
   font-weight: 500;
   border: 2px solid rgba(0, 0, 0, 0.2);

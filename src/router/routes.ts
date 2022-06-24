@@ -6,7 +6,7 @@ import {
   CurriculumTemplate,
   OnDevelopment,
   TimeApplication,
-  ToDos
+  ProjectField
 } from "./index";
 
 const routes: RouteRecordRaw[] = [
@@ -36,9 +36,9 @@ const routes: RouteRecordRaw[] = [
         component: TimeApplication
       },
       {
-        path: "/a-fazeres",
+        path: "/projetos",
         name: "ToDos",
-        component: ToDos
+        component: ProjectField
       }
     ]
   },

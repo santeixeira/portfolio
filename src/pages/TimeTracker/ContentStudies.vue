@@ -1,6 +1,7 @@
 <template>
+  
   <main class="columns is-gapless is-multiline">
-    <div class="column">
+    <div class="column full-height">
       <router-view></router-view>
     </div>
     <transition>
@@ -53,7 +54,7 @@ export default defineComponent({
   data() {
     return {
       darkMode: false,
-      hiddenBar: false
+      hiddenBar: false,
     };
   },
   methods: {
@@ -62,13 +63,17 @@ export default defineComponent({
     },
     hideBar(hiddenBarActive: boolean) {
       this.hiddenBar = hiddenBarActive;
-    }
+    },
+    
   }
 });
 </script>
 
 <style lang="scss">
 @import "@/assets/config_sass/colors.scss";
+.full-height {
+  height: 100vh !important;
+}
 .side-bar.is-1.hidden {
   width: 7em;
   transition: 0.4s ease;
@@ -84,5 +89,10 @@ export default defineComponent({
   width: 2.5em;
   height: 2.5em;
   transition: 0.4s ease;
+}
+.vue-modal-inner {
+  max-width: 50em!important;
+  width: 50em!important;
+  margin: 10em auto!important;
 }
 </style>
