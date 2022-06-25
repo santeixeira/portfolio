@@ -37,10 +37,10 @@
                 {{ project.updated }}
               </td>
               <td class="is-align-items-center">
-                <button @click="openUpdate" class="btn-project destroy mr-4">
+                <button @click="''" class="btn-project destroy mr-4">
                   <i class="fas fa-trash"></i>
                 </button>
-                <button @click="open" class="btn-project edit">
+                <button @click="openUpdate" class="btn-project edit">
                   <i class="fas fa-pencil"></i>
                 </button>
               </td>
@@ -122,5 +122,16 @@ table {
 table td,
 table th {
   text-align: center !important;
+}
+@media only screen and (max-width: 820px) {
+  table {
+    font-size: 11px;
+  }
+  .mr-4 {
+    margin-right: 0rem !important;
+  }
+  .is-align-items-center {
+    align-items: flex-start !important;
+  }
 }
 </style>

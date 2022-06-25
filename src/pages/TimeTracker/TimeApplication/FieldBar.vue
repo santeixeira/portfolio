@@ -1,7 +1,11 @@
 <template>
   <ListBox>
     <div class="columns organize-list is-mobile">
-      <div class="column is-3" role="form" aria-label="Form for new task">
+      <div
+        class="column is-full-mobile"
+        role="form"
+        aria-label="Form for new task"
+      >
         <TextInput
           :id="description"
           :placeholder="'Informe uma nova tarefa'"
@@ -9,7 +13,7 @@
           v-model="description"
         />
       </div>
-      <div class="column is-3">
+      <div class="column is-full-mobile">
         <SelectInput
           :icon="'fas fa-bolt'"
           v-model="typePomodoro"
@@ -18,7 +22,7 @@
         >
         </SelectInput>
       </div>
-      <div class="column is-3">
+      <div class="column is-full-mobile">
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
           <select v-model="idProject">
@@ -33,7 +37,7 @@
           </select>
         </div>
       </div>
-      <div class="column is-3">
+      <div class="column is-full-mobile">
         <ListTemporizer @endedTime="end" />
       </div>
     </div>
@@ -72,8 +76,7 @@ export default defineComponent({
         timeSeconds: timePassed,
         description: this.description,
         typePomodoro: this.typePomodoro,
-        project: this.projects.find((proj) => proj.id == this.idProject),
-        
+        project: this.projects.find((proj) => proj.id == this.idProject)
       });
       this.description = "";
     }
@@ -93,5 +96,10 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media only screen and (max-width: 820px) {
+  .organize-list {
+    display: block;
+  }
 }
 </style>

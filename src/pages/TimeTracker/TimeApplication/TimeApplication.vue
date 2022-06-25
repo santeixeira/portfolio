@@ -1,6 +1,6 @@
 <template>
-{{vAdd}}
-  <Modal :open="isOpen" @close="isOpen = !isOpen">
+  {{ isOpen }}
+  <Modal :open="isOpen" @close="isOpen = !isOpen, vAdd = !vAdd">
     <AddProject v-if="vAdd" />
     <UpdateProject v-else />
   </Modal>
@@ -89,7 +89,7 @@ export default defineComponent({
       const data2 = (this.vAdd = isAdd);
       return { data1, data2 };
     }
-  }
+  },
 });
 </script>
 
@@ -99,12 +99,12 @@ export default defineComponent({
 
 #project {
   position: absolute;
-  width: 100% - 16.66667%;
+  width: 100%;
 }
 
 #pomodoro {
   position: absolute;
-  width: 100% - 16.66667%;
+  width: 100%;
   z-index: 1;
 }
 .collapse-tab-in {

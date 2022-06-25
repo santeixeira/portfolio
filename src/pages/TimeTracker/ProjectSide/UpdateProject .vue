@@ -8,17 +8,20 @@
           id="taskName"
         ></TextInput>
       </div>
-      <div class="column is-5">
-        <select v-model="idProject">
-          <option value="" selected>Selecione o projeto</option>
-          <option
-            :value="project.id"
-            v-for="project in projects"
-            :key="project.id"
-          >
-            {{ project.name }}
-          </option>
-        </select>
+      <div class="column is-full-mobile">
+        <div class="input-box">
+          <i class="fas fa-diagram-project"></i>
+          <select v-model="idProject">
+            <option value="" default>Selecione o projeto</option>
+            <option
+              :value="project.id"
+              v-for="project in projects"
+              :key="project.id"
+            >
+              {{ project.name }}
+            </option>
+          </select>
+        </div>
       </div>
       <div class="column is-2 is-align-items-center">
         <CButton type="submit">Atualizar</CButton>
@@ -56,7 +59,7 @@ export default defineComponent({
     return {
       taskName: "",
       projectName: "",
-      idProject: 0,
+      idProject: 0
     };
   },
   methods: {
