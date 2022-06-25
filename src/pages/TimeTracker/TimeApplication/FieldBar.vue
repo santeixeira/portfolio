@@ -22,7 +22,7 @@
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
           <select v-model="idProject">
-            <option value="" selected>Selecione o projeto</option>
+            <option value="" default>Selecione o projeto</option>
             <option
               :value="project.id"
               v-for="project in projects"

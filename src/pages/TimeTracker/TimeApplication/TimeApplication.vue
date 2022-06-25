@@ -1,5 +1,9 @@
 <template>
-  <Modal :open="isOpen" @close="isOpen = !isOpen"> <AddProject /></Modal>
+{{vAdd}}
+  <Modal :open="isOpen" @close="isOpen = !isOpen">
+    <AddProject v-if="vAdd" />
+    <UpdateProject v-else />
+  </Modal>
   <div class="is-centered">
     <div class="switch-button">
       <input
@@ -37,18 +41,32 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { ListBox, Modal } from "@/components/index";
-import { FieldBar, Pomodoro, AddProject } from "../index";
+import {
+  FieldBar,
+  Pomodoro,
+  AddProject,
+  ProjectField,
+  UpdateProject
+} from "../index";
 import ITask from "@/interface/ITask";
-import ProjectField from "../ProjectSide/ProjectField.vue";
 
 export default defineComponent({
   name: "TimeApplication",
-  components: { FieldBar, Pomodoro, ListBox, ProjectField, Modal, AddProject },
+  components: {
+    FieldBar,
+    Pomodoro,
+    ListBox,
+    ProjectField,
+    Modal,
+    AddProject,
+    UpdateProject
+  },
   data() {
     return {
       tasks: [] as ITask[],
       tab: true,
-      isOpen: false
+      isOpen: false,
+      vAdd: false
     };
   },
   computed: {
@@ -66,8 +84,10 @@ export default defineComponent({
     tabChange() {
       this.tab = !this.tab;
     },
-    open(isOpened: boolean) {
-      return (this.isOpen = isOpened);
+    open(isOpened: boolean, isAdd: boolean) {
+      const data1 = (this.isOpen = isOpened);
+      const data2 = (this.vAdd = isAdd);
+      return { data1, data2 };
     }
   }
 });
@@ -76,7 +96,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "@/assets/config_sass/presets.scss";
 @import "@/assets/config_sass/colors.scss";
-
 
 #project {
   position: absolute;
@@ -97,7 +116,7 @@ export default defineComponent({
   transition: 0.5s ease-in;
 }
 .switch-button {
-  background: rgba($color: $third-secondary-color, $alpha: 0.025);
+  background: rgba($color: $third-secondary-color, $alpha: 0.25);
   margin: auto;
   border-radius: 30px;
   overflow: hidden;
@@ -105,7 +124,7 @@ export default defineComponent({
   text-align: center;
   font-size: 12px;
   letter-spacing: 1px;
-  color: $font-color;
+  color: $gray-scale;
   position: relative;
   padding-right: 120px;
   position: relative;
@@ -166,5 +185,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>

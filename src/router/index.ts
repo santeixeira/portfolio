@@ -5,3 +5,4 @@ export { default as ContentStudies } from "@/pages/TimeTracker/ContentStudies.vu
 export { default as OnDevelopment } from "@/pages/Misc/OnDevelopment.vue";
 export { default as TimeApplication } from "@/pages/TimeTracker/TimeApplication/TimeApplication.vue";
 export { default as ProjectField } from "@/pages/TimeTracker/ProjectSide/ProjectField.vue";
+export { default as AddProject } from "@/pages/TimeTracker/ProjectSide/AddProject.vue";

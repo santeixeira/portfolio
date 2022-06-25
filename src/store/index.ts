@@ -15,17 +15,19 @@ export const store = createStore<State>({
     news: []
   },
   mutations: {
-    POST_PROJECT(
-      state, projectName: string
-    ): void {
+    POST_PROJECT(state, projectName: string): void {
       const project = {
         id: new Date().getMilliseconds(),
         name: projectName,
         // type: projectInstance.categoryName,
-        date: new Date().toLocaleDateString("pt-BR"),
+        created: new Date().toLocaleDateString("pt-BR"),
+        updated: "Sem modificações"
       } as IProject;
       state.projects.push(project);
-    }
+    },
+    // UPDATE_PROJECT(state, projectName: string): void {
+
+    // }
   }
 });
 

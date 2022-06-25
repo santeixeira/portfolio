@@ -9,15 +9,19 @@
         ></TextInput>
       </div>
       <div class="column is-5">
-        <TextInput
-          :id="projectName"
-          :placeholder="'Informe uma nova tarefa'"
-          :icon="'fas fa-bars-progress'"
-          v-model="projectName"
-        />
+        <select v-model="idProject">
+          <option value="" selected>Selecione o projeto</option>
+          <option
+            :value="project.id"
+            v-for="project in projects"
+            :key="project.id"
+          >
+            {{ project.name }}
+          </option>
+        </select>
       </div>
       <div class="column is-2 is-align-items-center">
-        <CButton type="submit">Salvar</CButton>
+        <CButton type="submit">Atualizar</CButton>
       </div>
     </div>
   </form>
@@ -30,7 +34,7 @@ import { useStore } from "@/store";
 import { computed } from "@vue/reactivity";
 
 export default defineComponent({
-  name: "AddProject",
+  name: "UpdateProject",
   props: {
     id: {
       type: Number
@@ -51,7 +55,8 @@ export default defineComponent({
   data() {
     return {
       taskName: "",
-      projectName: ""
+      projectName: "",
+      idProject: 0,
     };
   },
   methods: {

@@ -1,8 +1,11 @@
 <template>
   <ListBox>
-    <div class="columns is-align-items-center">
+    <div class="columns">
       <div class="column is-1">
-        <button @click="open"><i class="fas fa-plus"></i></button>
+        <button @click="open" id="#add" class="btn-project add">
+          <i class="fas fa-plus"></i>
+        </button>
+        {{ isOpen }}
       </div>
       <div class="column is-11">
         <table class="table is-fullwidth content-side">
@@ -12,6 +15,7 @@
               <th>Nome</th>
               <th>Categoria</th>
               <th>Criado em</th>
+              <th>Modificado em</th>
               <th>&nbsp;&nbsp;</th>
             </tr>
           </thead>
@@ -27,11 +31,18 @@
                 {{ project.type }}
               </td>
               <td>
-                {{ project.date }}
+                {{ project.created }}
+              </td>
+              <td>
+                {{ project.updated }}
               </td>
               <td class="is-align-items-center">
-                <button @click="open" class="mr-4"><i class="fas fa-trash"></i></button>
-                <button @click="open"><i class="fas fa-pencil"></i></button>
+                <button @click="openUpdate" class="btn-project destroy mr-4">
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button @click="open" class="btn-project edit">
+                  <i class="fas fa-pencil"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -56,7 +67,9 @@ export default defineComponent({
     return {
       taskName: "",
       projectName: "",
-      isOpen: false
+      isOpen: false,
+      addOpen: false,
+      editOpen: false
     };
   },
   methods: {
@@ -66,7 +79,13 @@ export default defineComponent({
     },
     open() {
       this.isOpen = !this.isOpen;
-      this.$emit("openModal", this.isOpen);
+      this.addOpen = !this.addOpen;
+      this.$emit("openModal", this.isOpen, this.addOpen);
+    },
+    openUpdate() {
+      this.isOpen = !this.isOpen;
+      this.addOpen = !this.addOpen;
+      this.$emit("openModal", this.isOpen, this.editOpen);
     }
   },
   setup() {
@@ -82,6 +101,13 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "@/assets/config_sass/dark-mode.scss";
 @import "@/assets/config_sass/presets.scss";
+
+.btn-project {
+  border: none;
+  padding: 0.5em 0.7em 0.5em;
+  cursor: pointer;
+  border-radius: 6px;
+}
 .organize-list {
   display: flex;
   justify-content: space-between;

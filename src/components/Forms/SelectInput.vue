@@ -6,7 +6,7 @@
       <option
         v-for="(option, index) in options"
         :key="index"
-        :value="option"
+        :value="placeholder"
       >
         {{ options[index] }}
       </option>

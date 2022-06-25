@@ -6,7 +6,7 @@ import {
   CurriculumTemplate,
   OnDevelopment,
   TimeApplication,
-  ProjectField
+  AddProject
 } from "./index";
 
 const routes: RouteRecordRaw[] = [
@@ -36,9 +36,9 @@ const routes: RouteRecordRaw[] = [
         component: TimeApplication
       },
       {
-        path: "/projetos",
-        name: "ToDos",
-        component: ProjectField
+        path: "/pomodoro/adicionar",
+        name: "AddProject",
+        component: AddProject
       }
     ]
   },

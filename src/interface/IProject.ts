@@ -1,6 +1,7 @@
 export default interface IProject {
   id: number;
   name: string;
-  date: string;
+  created: string;
+  updated: string;
   type: string;
 }
