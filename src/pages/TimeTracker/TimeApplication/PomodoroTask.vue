@@ -1,9 +1,17 @@
 <template>
-  <ListBox >
-    <div class="columns" >
-      <div class="column is-5"><p>{{ task.description || "Sem descrição" }}</p></div>
-      <div class="column"><p>{{ task.typePomodoro || "Sprint livre" }}</p></div>
-      <div class="column">
+  <ListBox>
+    <div class="columns">
+      <div class="column is-3 is-align-items-center">
+        <p>{{ task.description || "Sem descrição" }}</p>
+      </div>
+      <div class="column is-align-items-center">
+        <p>{{ task.typePomodoro || "Sprint livre" }}</p>
+      </div>
+      <div class="column is-align-items-center">
+        <p>{{ task.project || "Sem projeto" }}</p>
+      </div>
+
+      <div class="column is-align-items-center">
         <Cronometer :timeSeconds="task.timeSeconds" />
       </div>
     </div>
@@ -13,7 +21,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { Cronometer, ListBox } from "@/components/index";
-import ITask from "@/interface/ITask";
+import { ITask } from "@/interface/index";
 export default defineComponent({
   name: "PomodoroTask",
   props: {
@@ -24,8 +32,9 @@ export default defineComponent({
   },
   data() {
     return {
-      darkMode: false
-    }
+      darkMode: false,
+      project: {}
+    };
   },
   components: {
     Cronometer,

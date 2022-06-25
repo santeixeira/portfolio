@@ -65,7 +65,7 @@ export default defineComponent({
   cursor: pointer;
 }
 .vue-modal {
-  position: fixed;
+  position: fixed;display: flex;
   top: 0;
   left: 0;
   width: 100%;
@@ -89,7 +89,7 @@ export default defineComponent({
   background-clip: padding-box;
   border-radius: 0.3rem;
   padding: 1em 1rem 1em;
-  width: 50em;
+  width: 100%;
 }
 
 .fade-enter-active,

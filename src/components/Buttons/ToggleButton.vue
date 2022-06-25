@@ -30,5 +30,5 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import "toggle_button.scss";
+@import "./toggle_button.scss";
 </style>

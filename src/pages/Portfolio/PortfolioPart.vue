@@ -8,17 +8,74 @@
     <div class="columns">
       <Carousel>
         <CarouselItem :imgs="imgs" @redirected-url="redirect(urls.linkedin)"
-          >Test</CarouselItem
-        >
+          ><h1>Lucrei!</h1>
+          <p>Lorem ipsum dolor, sit amet.</p>
+          <section class="stack">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            /></section
+        ></CarouselItem>
         <CarouselItem :imgs="imgs" @redirected-url="redirect(urls.linkedin)"
-          >Test</CarouselItem
-        >
+          ><h1>SJ Imóveis</h1>
+          <p>Lorem ipsum dolor, sit amet, ipsum dolor, sit amet</p>
+          <section class="stack">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            /></section
+        ></CarouselItem>
         <CarouselItem :imgs="imgs" @redirected-url="redirect(urls.linkedin)"
-          >Test</CarouselItem
-        >
+          ><h1>Lorem ipsum</h1>
+          <p>Lorem ipsum dolor, sit amet .</p>
+          <section class="stack">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            /></section
+        ></CarouselItem>
         <CarouselItem :imgs="imgs" @redirected-url="redirect(urls.linkedin)"
-          >Test</CarouselItem
-        >
+          ><h1>Lorem ipsum</h1>
+          <p>Lorem ipsum dolor, sit amet .</p>
+          <section class="stack">
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+            />
+          </section>
+        </CarouselItem>
       </Carousel>
     </div>
   </FullContainer>
@@ -49,4 +106,21 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import "@/assets/config_sass/presets.scss";
+.tile__title p{
+  font-size: 0.5em;
+  text-align: center!important;
+  justify-content: center;
+  padding: 0 10% 0;
+}
+.stack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.stack img {
+  height: 1.25em;
+  width: 1.25em;
+  padding: 0.2em;
+}
 </style>

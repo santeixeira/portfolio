@@ -1,11 +1,12 @@
 @import "./colors.scss";
 
-main.dark-mode #block {
+main.dark-mode #block,
+main.dark-mode .vue-modal-content {
   background-image: $background-terciary !important;
   transition: 1s ease-in;
 }
 
-main.dark-mode .box, main.dark-mode .block  {
+main.dark-mode .box, main.dark-mode .block {
   background-color: $first-secondary-color;
 }
 
