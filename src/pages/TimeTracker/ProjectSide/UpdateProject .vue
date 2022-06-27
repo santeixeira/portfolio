@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="save">
+  <form @submit.prevent="edit">
     <div class="columns organize-list">
       <div class="column is-5">
         <TextInput
@@ -11,7 +11,7 @@
       <div class="column is-full-mobile">
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
-          <select v-model="idProject">
+          <select v-model="projectName">
             <option value="" default>Selecione o projeto</option>
             <option
               :value="project.id"
@@ -47,6 +47,13 @@ export default defineComponent({
     CButton,
     TextInput
   },
+  data() {
+    return {
+      taskName: "",
+      projectName: "",
+      idProject: ""
+    };
+  },
   mounted() {
     if (this.id) {
       const project = this.store.state.projects.find(
@@ -55,20 +62,14 @@ export default defineComponent({
       this.projectName = project?.name || "";
     }
   },
-  data() {
-    return {
-      taskName: "",
-      projectName: "",
-      idProject: 0
-    };
-  },
   methods: {
-    save() {
-      this.store.commit("POST_PROJECT", this.taskName);
-      this.taskName = "";
-    },
     edit() {
-      this.store;
+      this.store.commit("UPDATE_PROJECT", {
+        id: this.id,
+        name: this.taskName,
+        type: this.projectName
+      });
+      this.projectName = "";
     }
   },
   setup() {

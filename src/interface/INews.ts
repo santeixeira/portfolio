@@ -3,5 +3,5 @@ export default interface INews {
   abstract: string,
   text: string,
   img: ImageData,
-  releaseDate: DateConstructor, 
+  releaseDate: string, 
 }

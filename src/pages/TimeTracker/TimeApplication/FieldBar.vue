@@ -19,6 +19,7 @@
           v-model="typePomodoro"
           :placeholder="'Informe uma nova tarefa'"
           :options="options"
+          :selected="options[0]"
         >
         </SelectInput>
       </div>
@@ -26,11 +27,12 @@
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
           <select v-model="idProject">
-            <option value="" default>Selecione o projeto</option>
+            <option value="" selected>Selecione o projeto</option>
             <option
               :value="project.id"
               v-for="project in projects"
               :key="project.id"
+              :is-select="options[0]"
             >
               {{ project.name }}
             </option>

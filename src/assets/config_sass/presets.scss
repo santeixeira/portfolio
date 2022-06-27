@@ -4,6 +4,9 @@ $content-margin: 2em;
 
 $height-side: calc(100vh - $content-margin);
 
+$width_is_one: 8.33333%;
+$width_is_two: 16.66667%;
+
 .destroy {
   background-color: rgba(248, 46, 124, 0.877);
   color: #fff;

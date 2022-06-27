@@ -1,3 +1,4 @@
+import { ProjectField, UpdateProject } from "@/pages/TimeTracker";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import {
   HomePage,
@@ -36,9 +37,22 @@ const routes: RouteRecordRaw[] = [
         component: TimeApplication
       },
       {
-        path: "/pomodoro/adicionar",
-        name: "AddProject",
-        component: AddProject
+        path: "/projetos",
+        name: "ProjectField",
+        component: ProjectField,
+        children: [
+          {
+            path: "/projetos/adicionar",
+            name: "AddProject",
+            component: AddProject
+          },
+          {
+            path: "/projetos/:id",
+            name: "UpdateProject",
+            component: UpdateProject,
+            props: true
+          }
+        ]
       }
     ]
   },

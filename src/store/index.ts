@@ -9,25 +9,43 @@ interface State {
 
 export const key: InjectionKey<Store<State>> = Symbol();
 
+let increment = 1;
 export const store = createStore<State>({
   state: {
     projects: [],
     news: []
   },
   mutations: {
-    POST_PROJECT(state, projectName: string): void {
+    POST_PROJECT(
+      state,
+      payload: {
+        projectName: string;
+        categoryName: string;
+      }
+    ): void {
       const project = {
-        id: new Date().getMilliseconds(),
-        name: projectName,
-        // type: projectInstance.categoryName,
+        id: increment,
+        name: payload?.projectName,
+        type: payload?.categoryName,
         created: new Date().toLocaleDateString("pt-BR"),
         updated: "Sem modificações"
       } as IProject;
+      increment++;
       state.projects.push(project);
     },
-    // UPDATE_PROJECT(state, projectName: string): void {
-
-    // }
+    UPDATE_PROJECT(state, project: IProject): void {
+      const index = state.projects.findIndex((proj) => proj.id == project.id);
+      state.projects[index] = {
+        ...project,
+        updated: new Date().toLocaleDateString("pt-BR")
+      };
+    },
+    POST_NEWS({ ...state }, newsTitle: string) {
+      const news = {
+        title: newsTitle,
+        abstract: String
+      };
+    }
   }
 });
 

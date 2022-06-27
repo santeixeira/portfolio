@@ -1,11 +1,17 @@
 <template>
+  <Modal
+    :open="isOpen"
+    @close="(isOpen = !isOpen), (addOpen = !addOpen), $router.push('/projetos')"
+    id="modal"
+  >
+    <router-view></router-view>
+  </Modal>
   <ListBox>
     <div class="columns">
       <div class="column is-1">
         <button @click="open" id="#add" class="btn-project add">
           <i class="fas fa-plus"></i>
         </button>
-        {{ isOpen }}
       </div>
       <div class="column is-11">
         <table class="table is-fullwidth content-side">
@@ -37,12 +43,15 @@
                 {{ project.updated }}
               </td>
               <td class="is-align-items-center">
-                <button @click="''" class="btn-project destroy mr-4">
+                <button @click="openUpdate" class="btn-project destroy mr-4">
                   <i class="fas fa-trash"></i>
                 </button>
-                <button @click="openUpdate" class="btn-project edit">
-                  <i class="fas fa-pencil"></i>
-                </button>
+                <router-link
+                  @click="openUpdate"
+                  class="btn-project edit"
+                  :to="`/projetos/${project.id}`"
+                  ><i class="fas fa-pencil"></i>
+                </router-link>
               </td>
             </tr>
           </tbody>
@@ -53,23 +62,23 @@
 </template>
 
 <script lang="ts">
-import { ListBox } from "@/components/index";
+import { ListBox, Modal } from "@/components/index";
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/store";
 
 export default defineComponent({
   name: "ProjectField",
   components: {
-    ListBox
+    ListBox,
+    Modal
   },
-  emits: ["openModal"],
   data() {
     return {
       taskName: "",
       projectName: "",
-      isOpen: false,
       addOpen: false,
-      editOpen: false
+      editOpen: false,
+      isOpen: false
     };
   },
   methods: {
@@ -79,13 +88,10 @@ export default defineComponent({
     },
     open() {
       this.isOpen = !this.isOpen;
-      this.addOpen = !this.addOpen;
-      this.$emit("openModal", this.isOpen, this.addOpen);
+      this.$router.push("/projetos/adicionar");
     },
     openUpdate() {
       this.isOpen = !this.isOpen;
-      this.addOpen = !this.addOpen;
-      this.$emit("openModal", this.isOpen, this.editOpen);
     }
   },
   setup() {
@@ -122,16 +128,5 @@ table {
 table td,
 table th {
   text-align: center !important;
-}
-@media only screen and (max-width: 820px) {
-  table {
-    font-size: 11px;
-  }
-  .mr-4 {
-    margin-right: 0rem !important;
-  }
-  .is-align-items-center {
-    align-items: flex-start !important;
-  }
 }
 </style>
