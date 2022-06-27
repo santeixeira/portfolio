@@ -81,7 +81,8 @@
 import { defineComponent, ref } from "vue";
 import { BlockBox, FullContainer, CButton, Modal } from "@/components/index";
 import { Certificates, Portfolio } from "./index";
-import { Methods, links } from "@/utils/index";
+import { Methods } from "@/utils/index";
+import modes from "@/assets/static_texts/texts.json"
 import CurriculumTemplate from "./CurriculumTemplate.vue";
 
 export default defineComponent({
@@ -101,7 +102,7 @@ export default defineComponent({
   },
   data() {
     return {
-      urls: links.urls
+      urls: modes.urls
     };
   },
   methods: {

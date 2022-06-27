@@ -7,16 +7,11 @@
       <a @click="reference">notícias recentes</a>!
     </p>
     <p>
-      Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as
-      minhas evoluções como programador, desde portfólio a artigos cientificos
-      das mais diversas areas. Programação, matemática, física, dicas que posso
-      oferecer, até mesmo pitacos em aeronáutica.
+      {{ home.p2 }}
     </p>
 
     <p>
-      Aqui você pode também organizar suas horas de estudos, com metodologias de
-      estudos rápido, como <strong>pomodoro</strong>, listagem de categorias e
-      afins. Dá uma conferida, colega!
+      {{ home.p3 }}
     </p>
 
     <router-link to="/pomodoro"><CButton>Começar</CButton></router-link>
@@ -26,14 +21,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { CButton, BlockBox } from "@/components/index";
-
+import mode from "@/assets/static_texts/texts.json";
 export default defineComponent({
   name: "FirstPart",
   emits: ["referenced"],
-  data() { 
-    return{
-      darkMode: "dark-mode"
-    }
+  data() {
+    return {
+      darkMode: "dark-mode",
+      home: mode.home
+    };
   },
   components: { CButton, BlockBox },
   methods: {
