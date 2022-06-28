@@ -42,6 +42,7 @@
 <script lang="ts">
 import Methods from "@/utils/Methods";
 import { defineComponent } from "vue";
+import modes from "@/assets/static_texts/texts.json";
 
 export default defineComponent({
   name: "ContactPart",
@@ -53,12 +54,7 @@ export default defineComponent({
         linkedin: "Linkedin",
         whatsapp: "Whatsapp"
       },
-      urls: {
-        whatsapp: "https://wa.me/5585996687731",
-        email: "mailto:jbsanthiago@gmail.com",
-        github: "https://github.com/santeixeira",
-        linkedin: "https://www.linkedin.com/in/san-thiago-teixeira-b3380a1a8/"
-      }
+      urls: modes.urls
     };
   },
   methods: {
@@ -70,4 +66,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.clicker {cursor: pointer;}</style>
+.clicker {
+  cursor: pointer;
+}
+</style>

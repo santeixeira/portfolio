@@ -35,6 +35,7 @@ import { CButton, TextInput } from "@/components/index";
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
 import { computed } from "@vue/reactivity";
+import { UPDATE_PROJECT } from "@/store/typeMutations";
 
 export default defineComponent({
   name: "UpdateProject",
@@ -64,7 +65,7 @@ export default defineComponent({
   },
   methods: {
     edit() {
-      this.store.commit("UPDATE_PROJECT", {
+      this.store.commit(UPDATE_PROJECT, {
         id: this.id,
         name: this.taskName,
         type: this.projectName

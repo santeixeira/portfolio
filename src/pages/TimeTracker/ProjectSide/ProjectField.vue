@@ -43,15 +43,18 @@
                 {{ project.updated }}
               </td>
               <td class="is-align-items-center">
-                <button @click="openUpdate" class="btn-project destroy mr-4">
+                <button
+                  @click="openDelete(project.id)"
+                  class="btn-project destroy mr-4"
+                >
                   <i class="fas fa-trash"></i>
                 </button>
-                <router-link
-                  @click="openUpdate"
+                <button
+                  @click="openUpdate(project.id)"
                   class="btn-project edit"
-                  :to="`/projetos/${project.id}`"
-                  ><i class="fas fa-pencil"></i>
-                </router-link>
+                >
+                  <i class="fas fa-pencil"></i>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -65,6 +68,7 @@
 import { ListBox, Modal } from "@/components/index";
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/store";
+import { POST_PROJECT, DESTROY_PROJECT } from "@/store/typeMutations";
 
 export default defineComponent({
   name: "ProjectField",
@@ -83,15 +87,19 @@ export default defineComponent({
   },
   methods: {
     save() {
-      this.store.commit("POST_PROJECT", this.taskName);
+      this.store.commit(POST_PROJECT, this.taskName);
       this.taskName = "";
     },
     open() {
       this.isOpen = !this.isOpen;
       this.$router.push("/projetos/adicionar");
     },
-    openUpdate() {
+    openUpdate(projecId: number) {
       this.isOpen = !this.isOpen;
+      this.$router.push(`/projetos/${projecId}`);
+    },
+    openDelete(projecId: number) {
+      this.store.commit(DESTROY_PROJECT, projecId);
     }
   },
   setup() {

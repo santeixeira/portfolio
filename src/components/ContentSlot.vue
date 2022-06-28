@@ -1,4 +1,5 @@
 <template>
+  <Notification></Notification>
   <main class="content-slot" :class="{ container: widthClass }">
     <slot></slot>
   </main>
@@ -7,6 +8,7 @@
 <script lang="ts">
 import ScreenDetect from "@/utils/ScreenDetect";
 import { defineComponent } from "vue";
+import Notification from "./misc/Notification.vue";
 export default defineComponent({
   name: "ContentSlot",
   mounted() {
@@ -20,7 +22,8 @@ export default defineComponent({
       widthClass: false,
       windowWidth: innerWidth
     };
-  }
+  },
+  components: { Notification }
 });
 </script>
 

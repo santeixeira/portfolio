@@ -53,7 +53,7 @@ export default defineComponent({
       formacao: {
         periodo: "2021-2023",
         curso: "Ciência da Computação",
-        instituicao: "Instuto Federal do Ceará",
+        instituicao: "Instituto Federal do Ceará",
         situacao: "Cursando"
       },
       segundaFormacao: {
