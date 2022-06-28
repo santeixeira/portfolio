@@ -8,7 +8,7 @@
         <p>{{ task.typePomodoro || "Sprint livre" }}</p>
       </div>
       <div class="column is-align-items-center">
-        <p>{{ task.project || "Sem projeto" }}</p>
+        <p>{{ task.project?.name || "Sem projeto" }}</p>
       </div>
 
       <div class="column is-align-items-center">

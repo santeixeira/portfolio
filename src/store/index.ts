@@ -13,7 +13,7 @@ import {
 interface State {
   projects: IProject[];
   news: INews[];
-  notification: INotification[];
+  notifications: INotification[];
 }
 
 export const key: InjectionKey<Store<State>> = Symbol();
@@ -23,28 +23,24 @@ export const store = createStore<State>({
   state: {
     projects: [],
     news: [],
-    notification: []
+    notifications: []
   },
   mutations: {
     [TO_NOTIFY](state, newNotification: INotification): void {
       newNotification.id = 1;
-      state.notification.push(newNotification);
+      state.notifications.push(newNotification);
       setTimeout(() => {
-        state.notification = state.notification.filter(
-          (notification) => notification.id = newNotification.id
+        state.notifications = state.notifications.filter(
+          (notification) => notification.id != newNotification.id
         );
       }, 3000);
     },
-    [POST_PROJECT](state: State, projectName: string): void {
-      const project = {
-        id: increment,
-        name: projectName,
-        type: "Nenhum por enquanto",
-        created: new Date().toLocaleDateString("pt-BR"),
-        updated: "Sem modificações"
-      } as IProject;
+    [POST_PROJECT](state: State, newProject: IProject): void {
+      newProject.id = increment;
+      newProject.created = new Date().toLocaleDateString("pt-BR");
+      newProject.updated = "Sem modificações";
       increment++;
-      state.projects.push(project);
+      state.projects.push(newProject);
     },
     [UPDATE_PROJECT](state, project: IProject): void {
       const index = state.projects.findIndex((proj) => proj.id == project.id);

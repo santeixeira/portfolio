@@ -28,8 +28,9 @@ import { CButton, TextInput } from "@/components/index";
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
 import { computed } from "@vue/reactivity";
-import { POST_PROJECT, TO_NOTIFY } from "@/store/typeMutations";
+import { POST_PROJECT } from "@/store/typeMutations";
 import { TypeNotification } from "@/interface/INotification";
+import Notifier from "@/hooks/notifier";
 
 export default defineComponent({
   name: "AddProject",
@@ -56,21 +57,28 @@ export default defineComponent({
       projectName: ""
     };
   },
+
   methods: {
     save() {
-      this.store.commit(POST_PROJECT, this.taskName);
-      this.store.commit(TO_NOTIFY, {
-        title: "Sucesso",
-        text: "Novo projeto adicionado",
-        type: TypeNotification.SUCESS
+      this.store.commit(POST_PROJECT, {
+        name: this.taskName,
+        type: this.projectName
       });
       this.taskName = "";
+      this.toNotify(
+        TypeNotification.SUCESS,
+        "Sucesso",
+        `Projeto ${this.taskName} adicionado.`,
+        "fas fa-check"
+      );
     }
   },
   setup() {
     const store = useStore();
+    const { toNotify } = Notifier();
     return {
       store,
+      toNotify,
       projects: computed(() => store.state.projects)
     };
   }

@@ -2,11 +2,11 @@
   <div class="input-box">
     <i :class="icon"></i>
     <select v-model="theModel" required>
-      <option value="" selected>{{ placeholder }}</option>
+      <option value="" default>{{ placeholder }}</option>
       <option
         v-for="(option, index) in options"
         :key="index"
-        :value="placeholder"
+        :value="option"
       >
         {{ options[index] }}
       </option>

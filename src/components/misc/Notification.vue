@@ -1,18 +1,20 @@
 <template>
-  <article
-    class="message notification-box is-flex is-centered"
-    :class="context[notification.type]"
-    v-for="notification in notifications"
-    :key="notification.id"
-  >
-    <div class="c1">
-      <i :class="notification.icon"></i>
-    </div>
-    <div class="c2">
-      <h1>{{ notification.title }}</h1>
-      <span>{{ notification.text }}</span>
-    </div>
-  </article>
+  <div class="notification-box">
+    <article
+      class="message columns is-centered"
+      :class="context[notification.type]"
+      v-for="notification in notifications"
+      :key="notification.id"
+    >
+      <div class="column is-2 __align">
+        <i :class="notification.icon"></i>
+      </div>
+      <div class="column is-9 is-multiline">
+        <h1>{{ notification.title }}</h1>
+        <span>{{ notification.text }}</span>
+      </div>
+    </article>
+  </div>
 </template>
 
 <script lang="ts">
@@ -26,7 +28,7 @@ export default defineComponent({
   data() {
     return {
       context: {
-        [TypeNotification.SUCESS]: "sucess",
+        [TypeNotification.SUCESS]: "success",
         [TypeNotification.WARNING]: "warning",
         [TypeNotification.ERRO]: "erro"
       }
@@ -35,7 +37,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     return {
-      notifications: computed(() => store.state.notification)
+      notifications: computed(() => store.state.notifications)
     };
   }
 });
@@ -44,20 +46,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "@/assets/config_sass/colors.scss";
 $height: 5em;
-.c1 {
-  margin: calc($height / 3);
-  text-align: start !important;
-}
-.c2 {
-  margin: calc($height / 5) 0 calc($height / 5);
+.__align {
+  align-items: center !important;
+  justify-content: center;
+  margin-top: 0.5em;
 }
 .notification-box {
-  right: 1em;
+  right: 2em;
   width: 18em;
   height: $height;
   position: absolute;
   border-radius: 6px;
   z-index: 100;
+  text-align: justify;
 }
 .success {
   background-color: $primary-color !important;

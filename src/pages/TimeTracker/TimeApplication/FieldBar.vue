@@ -32,7 +32,6 @@
               :value="project.id"
               v-for="project in projects"
               :key="project.id"
-              :is-select="options[0]"
             >
               {{ project.name }}
             </option>
