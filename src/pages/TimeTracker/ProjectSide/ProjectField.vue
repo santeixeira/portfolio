@@ -13,8 +13,31 @@
           <i class="fas fa-plus"></i>
         </button>
       </div>
-      <div class="column is-11">
-        <table class="table is-fullwidth content-side">
+      <div class="table column is-11">
+        <div class="columns is-fullwidth">
+          <div class="column is-1">ID</div>
+          <div class="column is-3">Nome</div>
+          <div class="column is-3">Categoria</div>
+          <div class="column is-2">Criado em</div>
+          <div class="column is-2">Modificado em</div>
+          <div class="column"></div>
+        </div>
+        <div class="columns" v-for="project in projects" :key="project.id">
+          <div class="column is-1">{{ project.id }}</div>
+          <div class="column is-3">{{ project.name }}</div>
+          <div class="column is-3">{{ project.type }}</div>
+          <div class="column is-2">{{ project.created }}</div>
+          <div class="column is-2">{{ project.updated }}</div>
+          <div class="column is-flex is-justify-content-space-between">
+            <button @click="openDelete(project.id)" class="btn-project destroy">
+              <i class="fas fa-trash"></i>
+            </button>
+            <button @click="openUpdate(project.id)" class="btn-project edit">
+              <i class="fas fa-pencil"></i>
+            </button>
+          </div>
+        </div>
+        <!-- <table class="table is-fullwidth content-side">
           <thead>
             <tr>
               <th>ID</th>
@@ -58,7 +81,7 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
     </div>
   </ListBox>

@@ -4,7 +4,7 @@ $navbar-breakpoint: 0;
 .navbar {
   top: 0;
   height: 2em fit-content;
-  position: fixed;
+  position: fixed!important;
   contain: content;
   background: none;
   display: flex;
@@ -26,8 +26,7 @@ a.navbar-item.is-active,
 a.navbar-item:focus,
 a.navbar-item:focus-within,
 a.navbar-item:hover {
-  background-color: #f3f3f3;
-  margin: 1em 0 1em;
+  background: none !important;
   border-radius: 1em;
   color: #4fb49d;
 }
@@ -48,5 +47,12 @@ a.navbar-item:hover {
   }
   .navbar-brand a.nav-burger {
     margin: 1em 1.75em 1em;
+  }
+}
+
+@media screen and (min-width: 1088px) {
+  .navbar-item.has-dropdown.is-active .navbar-link,
+  .navbar-item.has-dropdown:hover .navbar-link {
+    background-color: #fafafa;
   }
 }

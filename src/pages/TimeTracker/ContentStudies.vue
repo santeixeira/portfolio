@@ -3,21 +3,6 @@
     class="columns is-gapless is-multiline"
     :class="{ 'hidden is-11': hiddenBar }"
   >
-    <div class="column full-height">
-      <div class="is-centered">
-        <div class="switch-button">
-          <input
-            class="switch-button-checkbox"
-            type="checkbox"
-            @change="tabChange"
-          />
-          <label class="switch-button-label" for=""
-            ><span class="switch-button-label-span">Pomodoro</span></label
-          >
-        </div>
-      </div>
-      <router-view id="router"></router-view>
-    </div>
     <transition>
       <div class="column is-2 side-bar" :class="{ 'hidden is-1': hiddenBar }">
         <SideBar @hiding-bar="hideBar" class="is-absolute">
@@ -56,6 +41,21 @@
         </SideBar>
       </div>
     </transition>
+    <div class="column full-height">
+      <div class="is-centered">
+        <div class="switch-button">
+          <input
+            class="switch-button-checkbox"
+            type="checkbox"
+            @change="tabChange"
+          />
+          <label class="switch-button-label" for=""
+            ><span class="switch-button-label-span">Pomodoro</span></label
+          >
+        </div>
+      </div>
+      <router-view id="router"></router-view>
+    </div>
   </main>
 </template>
 
@@ -68,7 +68,7 @@ export default defineComponent({
   data() {
     return {
       darkMode: false,
-      hiddenBar: false,
+      hiddenBar: true,
       tab: true
     };
   },

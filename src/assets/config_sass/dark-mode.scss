@@ -1,4 +1,7 @@
 @import "./colors.scss";
+#app main.dark-mode {
+  color: $gray-scale;
+}
 
 main.dark-mode #block,
 main.dark-mode .vue-modal-content {
@@ -67,7 +70,6 @@ h1.dark-mode {
   padding: 4em 0 0;
 }
 
-main.dark-mode table th,
-main.dark-mode table tbody {
+main.dark-mode .table {
   color: $gray-scale;
 }

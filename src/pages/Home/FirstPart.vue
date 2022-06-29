@@ -14,7 +14,7 @@
       {{ home.p3 }}
     </p>
 
-    <router-link to="/pomodoro"><CButton>Começar</CButton></router-link>
+    <router-link to="/estudos"><CButton>Começar</CButton></router-link>
   </BlockBox>
 </template>
 

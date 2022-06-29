@@ -4,6 +4,7 @@ import {
   HomePage,
   AboutMe,
   ContentStudies,
+  HomeStudies,
   CurriculumTemplate,
   OnDevelopment,
   TimeApplication,
@@ -28,26 +29,31 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/estudos",
+    name: "HomeStudies",
+    component: HomeStudies
+  },
+  {
+    path: "/app",
     name: "ContentStudies",
     component: ContentStudies,
     children: [
       {
-        path: "/pomodoro",
+        path: "/app/pomodoro",
         name: "TimeApplication",
         component: TimeApplication
       },
       {
-        path: "/projetos",
+        path: "/app/projetos",
         name: "ProjectField",
         component: ProjectField,
         children: [
           {
-            path: "/projetos/adicionar",
+            path: "/app/projetos/adicionar",
             name: "AddProject",
             component: AddProject
           },
           {
-            path: "/projetos/:id",
+            path: "/app/projetos/:id",
             name: "UpdateProject",
             component: UpdateProject,
             props: true

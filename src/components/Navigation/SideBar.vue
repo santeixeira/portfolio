@@ -18,7 +18,7 @@ export default defineComponent({
   },
   data() {
     return {
-      hiddenBar: false
+      hiddenBar: true
     };
   },
   methods: {
@@ -33,6 +33,7 @@ export default defineComponent({
 <style lang="scss">
 @import "@/assets/config_sass/colors.scss";
 button.burger {
+  cursor: pointer;
   border: none;
   background: none;
   cursor: pointer;
