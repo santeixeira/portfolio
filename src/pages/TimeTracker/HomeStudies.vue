@@ -1,8 +1,8 @@
 <template>
   <div class="columns is-multiline">
     <div id="overlay" class="column is-full is-align-items-center">
-      <div style="position: absolute; width: 100%">
-        <h1>Teste</h1>
+      <div id="text">
+        <h1>Minerva</h1>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit maiores,
           provident quod rem vero velit, quam cum fugit doloribus impedit quis
@@ -11,14 +11,22 @@
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit maiores,
           provident quod rem vero velit, quam cum fugit doloribus impedit quis
+          eum magni tenetur voluptate ipsa dolores nemo cumque aliquid? Lorem
+          ipsum dolor, sit amet consectetur adipisicing elit. Sit maiores,
+          provident quod rem vero velit, quam cum fugit doloribus impedit quis
           eum magni tenetur voluptate ipsa dolores nemo cumque aliquid?
         </p>
-        <router-link to="/app/pomodoro"><CButton>Estudar</CButton></router-link>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit maiores,
+          provident quod rem vero velit, quam cum fugit doloribus impedit quis
+          eum magni tenetur voluptate ipsa dolores nemo cumque aliquid?
+        </p>
       </div>
       <img
         src="https://files.passeidireto.com/3c762296-9e23-4c1d-81ef-85304d675c14/3c762296-9e23-4c1d-81ef-85304d675c14.jpeg"
         alt=""
       />
+      <div class="overlay"></div>
     </div>
   </div>
   <div id="top" class="columns is-multiline" :class="{ hide: login }">
@@ -30,7 +38,7 @@
         consequuntur amet fugit sunt eligendi reiciendis in natus. Velit,
         provident dicta. Nam, eaque.
       </p>
-      <CButton>Estudar</CButton>
+      <router-link to="/app/pomodoro"><CButton>Estudar</CButton></router-link>
     </div>
     <div id="part3text" class="column is-6">
       <img
@@ -82,7 +90,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TextInput, MiniBoxes, CButton } from "@/components/index";
+import { CButton } from "@/components/index";
 
 export default defineComponent({
   name: "HomeStudies",
@@ -96,16 +104,39 @@ export default defineComponent({
 </script>
 
 <style scoped>
+#text {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
 #overlay {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+.overlay {
+  position: absolute;
+  transition: 0.5s ease;
+  height: 30em;
+  width: 104%;
+  top: 4.5em;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 1;
 }
 #overlay img {
   height: 30em;
   width: 100%;
   background-position: top center;
   object-fit: cover;
+}
+#overlay h1 {
+  margin: 1em 10em 0em;
+  color: #fff;
+}
+
+#overlay p {
+  margin: 2em 10em 0em;
+  color: #fff;
 }
 .column img {
   height: 100%;
@@ -129,6 +160,14 @@ export default defineComponent({
 }
 
 @media (max-width: 820px) {
+  #overlay h1 {
+    margin: 1em 0em 0em;
+    color: #fff;
+  }
+  #overlay p {
+    margin: 2em 1em 0em;
+    color: #fff;
+  }
   #overlay img {
     height: 40em;
   }

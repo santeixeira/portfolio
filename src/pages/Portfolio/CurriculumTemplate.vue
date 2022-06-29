@@ -65,6 +65,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.a4-paper span,
+.a4-paper h3{
+  color: #000;
+}
 #objective {
   margin-top: 1em;
 }

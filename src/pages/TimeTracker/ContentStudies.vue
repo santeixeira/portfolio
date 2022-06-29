@@ -90,9 +90,9 @@ export default defineComponent({
 
       setTimeout(() => {
         if (!this.tab) {
-          this.$router.push("/projetos");
+          this.$router.push("/app/projetos");
         } else {
-          this.$router.push("/pomodoro");
+          this.$router.push("/app/pomodoro");
         }
       }, 1000);
     }
