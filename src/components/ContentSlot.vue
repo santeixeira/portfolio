@@ -1,5 +1,5 @@
 <template>
-  <Notification></Notification>
+  <!-- <Notification></Notification> -->
   <main class="content-slot" :class="{ container: widthClass }">
     <slot></slot>
   </main>
@@ -23,10 +23,13 @@ export default defineComponent({
       windowWidth: innerWidth
     };
   },
-  components: { Notification }
+  // components: { Notification }
 });
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/config_sass/presets.scss";
+.content-slot {
+  padding: 6em 0!important;
+}
 </style>

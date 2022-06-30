@@ -33,6 +33,6 @@ export default defineComponent({
 @import "@/assets/config_sass/colors.scss";
 ._footer {
   background-image: linear-gradient(130deg, $gray-scale, white);
-  padding: 4em 0 0;
+  padding: 0 0 0;
 }
 </style>

@@ -1,21 +1,25 @@
 @import "./colors.scss";
 $content-margin: 2em;
 $navbar-breakpoint: 0;
-.navbar {
+nav {
+  padding: 0;
+}
+.__navbar {
   top: 0;
-  height: 2em fit-content;
-  position: fixed!important;
   contain: content;
   background: none;
-  display: flex;
   width: 100%;
-  max-height: 100%;
-  box-shadow: 1px 5px 5px 3px rgba(201, 201, 201, 0.1);
 }
 
-.navbar .navbar-item {
-  font-size: 1em;
-  font-weight: 500;
+.navbar-item.has-dropdown {
+  padding: 0 !important;
+  margin: 0;align-items: center;
+  text-align: center;
+}
+.navbar-link .navbar-item.has-dropdown.is-active .navbar-link,
+.navbar-item.has-dropdown:hover .navbar-link {
+  background-color: #fafafa;
+  width: 12em;
 }
 
 .navbar-link.is-active,
@@ -36,6 +40,18 @@ a.navbar-item:hover {
   width: 2.75em;
   max-height: 100%;
   margin: 1em 1.75em 1em;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+  border-color: #4fb49d;
+  margin-top: -0.375em;
+  right: 1.125em;
+}
+.navbar-dropdown {
+  font-size: 0.875rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  z-index: 10000;
 }
 
 @media only screen and (max-width: 820px) {

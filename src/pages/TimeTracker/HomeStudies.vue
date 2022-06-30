@@ -107,21 +107,22 @@ export default defineComponent({
 #text {
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 2;
 }
 #overlay {
   height: 100%;
   padding: 0;
-  margin: 0;
+  margin: -6em 0;
 }
 .overlay {
   position: absolute;
   transition: 0.5s ease;
   height: 30em;
   width: 104%;
-  top: 4.5em;
   background-color: rgba(0, 0, 0, 0.75);
   opacity: 1;
+  top: 6.5em;
+  z-index: 1;
 }
 #overlay img {
   height: 30em;
@@ -143,6 +144,9 @@ export default defineComponent({
   width: 100%;
   background-position: top center;
   object-fit: cover;
+}
+#top {
+  margin: 5.5em 0;
 }
 #top .column {
   padding: 0;

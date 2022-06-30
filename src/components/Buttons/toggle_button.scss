@@ -1,6 +1,6 @@
 @import "@/assets/config_sass/colors.scss";
 
-.navbar input[type="checkbox"] {
+nav input[type="checkbox"] {
   margin: 1em 1em 1em;
   height: 0;
   width: 0;
@@ -19,7 +19,7 @@
   
 }
 
-.navbar label {
+nav label {
   cursor: pointer;
   text-indent: -9999px;
   width: 3.25em;
@@ -44,4 +44,8 @@
   &:active::after {
     width: 13px;
   }
+}
+
+#switch {
+  display: none;
 }

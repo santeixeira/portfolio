@@ -1,80 +1,50 @@
 <template>
-  <nav
-    class="navbar"
-    role="navigation"
-    aria-label="main navigation"
-    :class="{ container: widthClass }"
-  >
-    <div class="navbar-brand">
-      <router-link to="/">
-        <img src="@/assets/logo.png" />
-      </router-link>
+  <header>
+    <router-link to="/">
+      <img src="@/assets/logo.png" />
+    </router-link>
 
-      <a
-        role="button"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-      >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <router-link
-          class="navbar-item"
-          :class="{ 'dark-mode': darkMode }"
-          to="/"
-          >Página Inicial</router-link
-        >
-        <router-link
-          class="navbar-item"
-          :class="{ 'dark-mode': darkMode }"
-          to="/portfolio"
-          >Portfólio</router-link
-        >
-
-        <router-link
-          class="navbar-item"
-          :class="{ 'dark-mode': darkMode }"
-          to="/estudos"
-          >Estudos</router-link
-        >
-        <router-link
-          class="navbar-item"
-          :class="{ 'dark-mode': darkMode }"
-          to="/estudos"
-          >Roadmap</router-link
-        >
-
-        <div class="navbar-item has-dropdown is-hoverable">
+    <nav role="navigation" :class="{ container: widthClass }">
+      <ul class="nav__links" :class="{ 'nav-active': ariaHidden }">
+        <li>
+          <router-link
+            class="navbar-item"
+            :class="{ 'dark-mode': darkMode }"
+            to="/"
+            >Página Inicial</router-link
+          >
+        </li>
+        <li>
+          <router-link
+            class="navbar-item"
+            :class="{ 'dark-mode': darkMode }"
+            to="/portfolio"
+            >Portfólio</router-link
+          >
+        </li>
+        <li class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" :class="{ 'dark-mode': darkMode }">
-            Artigos e Documentos
+            Minerva
           </a>
 
           <div class="navbar-dropdown">
+            <a class="navbar-item"> Estudos </a>
             <a class="navbar-item"> Notícias </a>
             <a class="navbar-item"> Artigos </a>
             <a class="navbar-item"> Documentações </a>
             <hr class="navbar-divider" />
-            <a class="navbar-item"> Entre em contato comigo </a>
+            <a class="navbar-item"> Contato </a>
           </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <ToggleButton @checkedBox="alterTheme" />
-          </div>
-        </div>
-      </div>
+        </li>
+        <li>
+          <ToggleButton @checkedBox="alterTheme" />
+        </li>
+      </ul>
+    </nav>
+    <div class="buttons">
+      <button @click="hiddenBurger" class="burger fas fa-bars"></button>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script lang="ts">
@@ -91,7 +61,7 @@ export default defineComponent({
   data() {
     return {
       darkMode: false,
-      ariaHidden: true,
+      ariaHidden: false,
       widthClass: false,
       windowWidth: innerWidth
     };
@@ -106,7 +76,7 @@ export default defineComponent({
       this.$emit("alteredTheme", this.darkMode);
     },
     hiddenBurger() {
-      document.getElementById("one")?.ariaHidden;
+      this.ariaHidden = !this.ariaHidden;
     }
   }
 });
@@ -114,4 +84,67 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import url("@/assets/config_sass/navbar.scss");
+header {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+}
+header img {
+  height: 3em;
+}
+nav {
+  background: none;
+}
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+  &:hover {
+    color: #4fb49d;
+  }
+}
+header .burger {
+  display: none;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav__links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 22vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    z-index: 3;
+  }
+  header .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+  color: #fff!important;
+  z-index: 4;
+}
 </style>
