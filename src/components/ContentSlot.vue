@@ -30,6 +30,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import "@/assets/config_sass/presets.scss";
 .content-slot {
-  padding: 6em 0!important;
+  padding: 4em 0!important;
 }
 </style>

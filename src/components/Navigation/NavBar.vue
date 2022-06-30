@@ -1,10 +1,10 @@
 <template>
-  <header>
+  <header :class="{ aria: ariaHidden }">
     <router-link to="/">
       <img src="@/assets/logo.png" />
     </router-link>
 
-    <nav role="navigation" :class="{ container: widthClass }">
+    <nav id="nav" role="navigation" :class="{ container: widthClass }">
       <ul class="nav__links" :class="{ 'nav-active': ariaHidden }">
         <li>
           <router-link
@@ -84,12 +84,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @import url("@/assets/config_sass/navbar.scss");
+#nav {
+  margin-left: 40em;
+}
 header {
-  position: sticky;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 50px;
+  padding: 1em 50px 0;
+  width: 100%;
+  z-index: 100;
 }
 header img {
   height: 3em;
@@ -120,22 +125,26 @@ header .burger {
 }
 
 @media screen and (max-width: 768px) {
+  #nav {
+    margin-left: 10em;
+  }
   body {
     overflow-x: hidden;
   }
+
   .nav__links {
-    position: absolute;
+    position: fixed;
     right: 0px;
     height: 92vh;
-    top: 22vh;
-    background-color: rgba(0, 0, 0, 0.7);
+    top: 13vh;
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
-    z-index: 3;
+    z-index: 4;
   }
   header .burger {
     display: block;
@@ -144,7 +153,10 @@ header .burger {
 
 .nav-active {
   transform: translateX(0%);
-  color: #fff!important;
+  color: #fff !important;
   z-index: 4;
+}
+header.aria {
+  background-color: #000;
 }
 </style>
