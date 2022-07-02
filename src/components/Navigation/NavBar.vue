@@ -28,10 +28,14 @@
           </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item"> Estudos </a>
-            <a class="navbar-item"> Notícias </a>
-            <a class="navbar-item"> Artigos </a>
-            <a class="navbar-item"> Documentações </a>
+            <router-link class="navbar-item" to="/estudos">Estudos</router-link>
+            <router-link class="navbar-item" to="/estudos"
+              >Notícias</router-link
+            >
+            <router-link class="navbar-item" to="/estudos">Artigos</router-link>
+            <router-link class="navbar-item" to="/estudos"
+              >Documentações</router-link
+            >
             <hr class="navbar-divider" />
             <a class="navbar-item"> Contato </a>
           </div>

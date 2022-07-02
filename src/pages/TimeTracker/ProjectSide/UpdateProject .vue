@@ -4,22 +4,21 @@
       <div class="column is-5">
         <TextInput
           :placeholder="'Digite o nome do projeto'"
-          v-model="taskName"
+          v-model="projectName"
           id="taskName"
         ></TextInput>
       </div>
       <div class="column is-full-mobile">
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
-          <select v-model="projectName">
+          <select v-model="categoryName">
             <option value="" default>Selecione o projeto</option>
             <option
-              :value="project.id"
-              v-for="project in projects"
-              :key="project.id"
-            >
-              {{ project.name }}
-            </option>
+              :value="projects[index].type"
+              v-for="(project, index) in projects"
+              :key="projects[index].id"
+              v-text="projects[index].type"
+            ></option>
           </select>
         </div>
       </div>
@@ -32,10 +31,9 @@
 
 <script lang="ts">
 import { CButton, TextInput } from "@/components/index";
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import { useStore } from "@/store";
-import { computed } from "@vue/reactivity";
-import { UPDATE_PROJECT } from "@/store/typeMutations";
+import { UPDATE_PROJECTS } from "@/store/typeActions";
 
 export default defineComponent({
   name: "UpdateProject",
@@ -50,9 +48,8 @@ export default defineComponent({
   },
   data() {
     return {
-      taskName: "",
       projectName: "",
-      idProject: ""
+      categoryName: ""
     };
   },
   mounted() {
@@ -65,10 +62,11 @@ export default defineComponent({
   },
   methods: {
     edit() {
-      this.store.commit(UPDATE_PROJECT, {
+      this.store.dispatch(UPDATE_PROJECTS, {
         id: this.id,
-        name: this.taskName,
-        type: this.projectName
+        name: this.projectName,
+        type: this.categoryName,
+        updated: new Date().toLocaleDateString("pt-BR")
       });
       this.projectName = "";
     }

@@ -1,13 +1,20 @@
+import http from "@/http";
 import { INews, IProject } from "@/interface/index";
 import { INotification, TypeNotification } from "@/interface/INotification";
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
 import {
+  DESTROY_PROJECTS,
+  GET_PROJECTS,
+  POST_PROJECTS,
+  UPDATE_PROJECTS
+} from "./typeActions";
+import {
   DESTROY_PROJECT,
-  POST_NEWS,
   POST_PROJECT,
   UPDATE_PROJECT,
-  TO_NOTIFY
+  TO_NOTIFY,
+  DEFINE_PROJECT
 } from "./typeMutations";
 
 interface State {
@@ -17,8 +24,6 @@ interface State {
 }
 
 export const key: InjectionKey<Store<State>> = Symbol();
-
-let increment = 1;
 export const store = createStore<State>({
   state: {
     projects: [],
@@ -36,10 +41,8 @@ export const store = createStore<State>({
       }, 3000);
     },
     [POST_PROJECT](state: State, newProject: IProject): void {
-      newProject.id = increment;
       newProject.created = new Date().toLocaleDateString("pt-BR");
       newProject.updated = "Sem modificações";
-      increment++;
       state.projects.push(newProject);
     },
     [UPDATE_PROJECT](state, project: IProject): void {
@@ -51,6 +54,10 @@ export const store = createStore<State>({
     },
     [DESTROY_PROJECT](state, id: number): void {
       state.projects = state.projects.filter((proj) => proj.id != id);
+    },
+
+    [DEFINE_PROJECT](state, projects: IProject[]) {
+      state.projects = projects;
     }
 
     // [POST_NEWS]({ state, newsTitle: string) {
@@ -59,6 +66,32 @@ export const store = createStore<State>({
     //     abstract: String
     //   } as INews
     // }
+  },
+  actions: {
+    [GET_PROJECTS]({ commit }) {
+      http
+        .get("projects")
+        .then((response) => commit(DEFINE_PROJECT, response.data));
+    },
+    [POST_PROJECTS]({ commit }, newProject: IProject) {
+      return http
+        .post("/projects", {
+          ...newProject
+        })
+        .then((response) => commit(POST_PROJECT, response.data));
+    },
+    async [UPDATE_PROJECTS]({ commit }, newProject: IProject) {
+      const data = await http.put(`/projects/${newProject.id}`, {
+        ...newProject
+      });
+      commit(UPDATE_PROJECT, { ...newProject });
+      return data;
+    },
+    [DESTROY_PROJECTS]({ commit }, idProject: number) {
+      return http
+        .delete(`/projects/${idProject}`)
+        .then(() => commit(DESTROY_PROJECT, idProject));
+    }
   }
 });
 

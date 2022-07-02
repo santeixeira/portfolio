@@ -1,4 +1,5 @@
 <template>
+  <Notification @show-notification="''"></Notification>
   <main
     class="columns is-gapless is-multiline"
     :class="{ 'hidden is-11': hiddenBar }"
@@ -14,7 +15,7 @@
               :class="{ 'hidden-image': hiddenBar }"
             />
           </h1>
-          <router-link to="/pomodoro">
+          <router-link to="/app/pomodoro">
             <div class="side-bar-content">
               <i class="fas fa-hourglass"></i>
               <span :hidden="hiddenBar">Pomodoro</span>
@@ -61,10 +62,10 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { SideBar } from "@/components/index";
+import { SideBar, Notification } from "@/components/index";
 export default defineComponent({
   name: "ContentStudies",
-  components: { SideBar },
+  components: { SideBar, Notification },
   data() {
     return {
       darkMode: false,

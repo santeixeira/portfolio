@@ -26,3 +26,4 @@ export { default as Carousel } from "@/components/misc/CarouselMenu.vue";
 export { default as CarouselItem } from "@/components/misc/CarouselItem.vue";
 export { default as CurriculumPaper } from "@/components/misc/CurriculumPaper.vue";
 export { default as Modal } from "@/components/misc/Modal.vue";
+export { default as Notification } from "@/components/misc/Notification.vue";

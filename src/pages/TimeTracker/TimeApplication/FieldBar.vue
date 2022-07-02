@@ -60,7 +60,7 @@ export default defineComponent({
   data() {
     return {
       description: "",
-      typePomodoro: "",
+      typePomodoro: "0",
       idProject: 0,
       options: [
         "Sprint livre",

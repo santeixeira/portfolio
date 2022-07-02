@@ -2,7 +2,7 @@
   <div class="input-box">
     <i :class="icon"></i>
     <select v-model="theModel" required>
-      <option value="" default>{{ placeholder }}</option>
+      
       <option
         v-for="(option, index) in options"
         :key="index"

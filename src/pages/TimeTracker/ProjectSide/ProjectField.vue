@@ -1,7 +1,9 @@
 <template>
   <Modal
     :open="isOpen"
-    @close="(isOpen = !isOpen), (addOpen = !addOpen), $router.push('/projetos')"
+    @close="
+      (isOpen = !isOpen), (addOpen = !addOpen), $router.push('/app/projetos')
+    "
     id="modal"
   >
     <router-view></router-view>
@@ -91,7 +93,8 @@
 import { ListBox, Modal } from "@/components/index";
 import { defineComponent, computed } from "vue";
 import { useStore } from "@/store";
-import { POST_PROJECT, DESTROY_PROJECT } from "@/store/typeMutations";
+import { POST_PROJECT } from "@/store/typeMutations";
+import { DESTROY_PROJECTS, GET_PROJECTS } from "@/store/typeActions";
 
 export default defineComponent({
   name: "ProjectField",
@@ -112,21 +115,23 @@ export default defineComponent({
     save() {
       this.store.commit(POST_PROJECT, this.taskName);
       this.taskName = "";
+      
     },
     open() {
       this.isOpen = !this.isOpen;
-      this.$router.push("/projetos/adicionar");
+      this.$router.push("/app/projetos/adicionar");
     },
     openUpdate(projecId: number) {
       this.isOpen = !this.isOpen;
-      this.$router.push(`/projetos/${projecId}`);
+      this.$router.push(`/app/projetos/${projecId}`);
     },
     openDelete(projecId: number) {
-      this.store.commit(DESTROY_PROJECT, projecId);
+      this.store.dispatch(DESTROY_PROJECTS, projecId);
     }
   },
   setup() {
     const store = useStore();
+    store.dispatch(GET_PROJECTS);
     return {
       store,
       projects: computed(() => store.state.projects)
