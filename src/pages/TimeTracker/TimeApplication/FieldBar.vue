@@ -46,16 +46,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed, reactive, ref } from "vue";
 import { ListBox, TextInput, SelectInput } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
 import { useStore } from "vuex";
 import IProject from "@/interface/IProject";
-import { key } from "@/store";
-import { computed } from "@vue/reactivity";
+import { key, store } from "@/store";
+import { GET_PROJECTS, GET_TASKS } from "@/store/typeActions";
 export default defineComponent({
   name: "FieldBar",
   emits: ["atSaveTask"],
+  props: ["store"],
   components: { ListBox, ListTemporizer, TextInput, SelectInput },
   data() {
     return {
@@ -80,6 +81,8 @@ export default defineComponent({
         project: this.projects.find((proj) => proj.id == this.idProject)
       });
       this.description = "";
+      this.typePomodoro = "0";
+      this.idProject = 0;
     }
   },
   setup() {

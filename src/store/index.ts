@@ -1,12 +1,14 @@
 import http from "@/http";
-import { INews, IProject } from "@/interface/index";
+import { INews, IProject, ITask } from "@/interface/index";
 import { INotification, TypeNotification } from "@/interface/INotification";
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as vuexUseStore } from "vuex";
 import {
   DESTROY_PROJECTS,
   GET_PROJECTS,
+  GET_TASKS,
   POST_PROJECTS,
+  POST_TASKS,
   UPDATE_PROJECTS
 } from "./typeActions";
 import {
@@ -14,11 +16,14 @@ import {
   POST_PROJECT,
   UPDATE_PROJECT,
   TO_NOTIFY,
-  DEFINE_PROJECT
+  GET_PROJECT,
+  POST_TASK,
+  GET_TASK
 } from "./typeMutations";
 
 interface State {
   projects: IProject[];
+  tasks: ITask[];
   news: INews[];
   notifications: INotification[];
 }
@@ -28,7 +33,8 @@ export const store = createStore<State>({
   state: {
     projects: [],
     news: [],
-    notifications: []
+    notifications: [],
+    tasks: []
   },
   mutations: {
     [TO_NOTIFY](state, newNotification: INotification): void {
@@ -56,8 +62,16 @@ export const store = createStore<State>({
       state.projects = state.projects.filter((proj) => proj.id != id);
     },
 
-    [DEFINE_PROJECT](state, projects: IProject[]) {
+    [GET_PROJECT](state, projects: IProject[]) {
       state.projects = projects;
+    },
+
+    [GET_TASK](state, tasks: ITask[]) {
+      state.tasks = tasks;
+    },
+
+    [POST_TASK](state: State, newTask: ITask): void {
+      state.tasks.push({ ...newTask });
     }
 
     // [POST_NEWS]({ state, newsTitle: string) {
@@ -71,7 +85,7 @@ export const store = createStore<State>({
     [GET_PROJECTS]({ commit }) {
       http
         .get("projects")
-        .then((response) => commit(DEFINE_PROJECT, response.data));
+        .then((response) => commit(GET_PROJECT, response.data));
     },
     [POST_PROJECTS]({ commit }, newProject: IProject) {
       return http
@@ -91,6 +105,18 @@ export const store = createStore<State>({
       return http
         .delete(`/projects/${idProject}`)
         .then(() => commit(DESTROY_PROJECT, idProject));
+    },
+
+    [GET_TASKS]({ commit }) {
+      http.get("pomodoro").then((response) => commit(GET_TASK, response.data));
+    },
+
+    [POST_TASKS]({ commit }, newTask: ITask) {
+      return http
+        .post("/pomodoro", {
+          ...newTask
+        })
+        .then((response) => commit(POST_TASK, response.data));
     }
   }
 });
@@ -98,3 +124,4 @@ export const store = createStore<State>({
 export function useStore(): Store<State> {
   return vuexUseStore(key);
 }
+

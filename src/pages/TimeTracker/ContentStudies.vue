@@ -1,6 +1,6 @@
 <template>
   <Notification @show-notification="''"></Notification>
-  <main
+  <main id="block-time"
     class="columns is-gapless is-multiline"
     :class="{ 'hidden is-11': hiddenBar }"
   >
@@ -106,6 +106,10 @@ export default defineComponent({
 @import "@/assets/config_sass/presets.scss";
 .full-height {
   height: 100vh !important;
+}
+
+#block-time{
+  margin-top: 1em;
 }
 .side-bar.is-1.hidden {
   width: 7em;
