@@ -108,8 +108,7 @@ export default defineComponent({
   methods: {
     redirect(url: string): void {
       new Methods().redirect(url);
-    },
-    
+    }
   }
 });
 </script>

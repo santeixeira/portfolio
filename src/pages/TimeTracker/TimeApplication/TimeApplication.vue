@@ -34,7 +34,8 @@ export default defineComponent({
   },
   methods: {
     saveTask(task: ITask): void {
-      store.dispatch(POST_TASKS, task);
+      task.createdAt = new Date().toLocaleDateString("pt-BR");
+      store.dispatch(POST_TASKS, {...task});
     }
   },
   setup() {

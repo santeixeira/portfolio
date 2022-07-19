@@ -49,6 +49,7 @@
             class="switch-button-checkbox"
             type="checkbox"
             @change="tabChange"
+            :checked="checked"
           />
           <label class="switch-button-label" for=""
             ><span class="switch-button-label-span">Pomodoro</span></label
@@ -70,8 +71,16 @@ export default defineComponent({
     return {
       darkMode: false,
       hiddenBar: true,
-      tab: true
+      tab: true,
+      checked: false,
     };
+  },
+  mounted(){
+    const param = this.$route.path
+    if(param == "/app/projetos"){
+      this.checked = !this.checked
+      this.tab = !this.tab
+    }
   },
   methods: {
     alterTheme(darkMode: boolean) {
@@ -82,6 +91,7 @@ export default defineComponent({
     },
     tabChange() {
       this.tab = !this.tab;
+      this.checked = !this.checked;
       let v = document.getElementById("#router") as HTMLElement;
       if (!this.tab) {
         v?.classList.add("collapse-tab-in");

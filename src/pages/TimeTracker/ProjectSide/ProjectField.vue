@@ -121,11 +121,11 @@ export default defineComponent({
       this.isOpen = !this.isOpen;
       this.$router.push("/app/projetos/adicionar");
     },
-    openUpdate(projecId: number) {
+    openUpdate(projecId: string) {
       this.isOpen = !this.isOpen;
       this.$router.push(`/app/projetos/${projecId}`);
     },
-    openDelete(projecId: number) {
+    openDelete(projecId: string) {
       this.store.dispatch(DESTROY_PROJECTS, projecId);
     }
   },

@@ -58,7 +58,7 @@ export const store = createStore<State>({
         updated: new Date().toLocaleDateString("pt-BR")
       };
     },
-    [DESTROY_PROJECT](state, id: number): void {
+    [DESTROY_PROJECT](state, id: string): void {
       state.projects = state.projects.filter((proj) => proj.id != id);
     },
 
@@ -114,7 +114,8 @@ export const store = createStore<State>({
     [POST_TASKS]({ commit }, newTask: ITask) {
       return http
         .post("/pomodoro", {
-          ...newTask
+          ...newTask,
+          
         })
         .then((response) => commit(POST_TASK, response.data));
     }
