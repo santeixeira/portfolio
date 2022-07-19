@@ -1,23 +1,40 @@
 {
   "projects": [
     {
-      "id": 1,
-      "name": "Estudar Node.js",
-      "type": "Programação",
-      "updated": "02/07/2022"
-    },
-    {
-      "id": 4,
-      "name": "Estudar C#",
-      "type": "Programação",
-      "updated": "02/07/2022"
-    },
-    {
       "name": "Integral por Partes",
       "type": "Matemática",
       "created": "02/07/2022",
       "updated": "Sem modificações",
       "id": 5
+    }
+  ],
+  "pomodoro": [
+    {
+      "timeSeconds": 3,
+      "description": "San",
+      "typePomodoro": "Sprints 25/5",
+      "project": {
+        "name": "Integral por Partes",
+        "type": "Matemática",
+        "created": "02/07/2022",
+        "updated": "Sem modificações",
+        "id": 5
+      },
+      "id": 1
+    },
+    {
+      "timeSeconds": 5,
+      "description": "Estudar Metodos de integracao",
+      "typePomodoro": "Sprints 25/5",
+      "project": {
+        "name": "Integral por Partes",
+        "type": "Matemática",
+        "created": "02/07/2022",
+        "updated": "Sem modificações",
+        "id": 5
+      },
+      "createdAt": "19/07/2022",
+      "id": 2
     }
   ]
 }

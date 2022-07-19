@@ -7,8 +7,8 @@
         v-for="(option, index) in options"
         :key="index"
         :value="option"
+        v-text="options[index]"
       >
-        {{ options[index] }}
       </option>
     </select>
   </div>

@@ -36,7 +36,7 @@ export default defineComponent({
   name: "AddProject",
   props: {
     id: {
-      type: Number
+      type: String
     }
   },
   components: {

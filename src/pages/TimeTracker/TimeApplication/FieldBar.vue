@@ -17,7 +17,6 @@
         <SelectInput
           :icon="'fas fa-bolt'"
           v-model="typePomodoro"
-          :placeholder="'Informe uma nova tarefa'"
           :options="options"
           :selected="options[0]"
         >
@@ -27,14 +26,13 @@
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
           <select v-model="idProject">
-            <option value="" selected>Selecione o projeto</option>
+            <option value="" default>Selecione o projeto</option>
             <option
-              :value="project.id"
-              v-for="project in projects"
-              :key="project.id"
-            >
-              {{ project.name }}
-            </option>
+              :value="projects[index].name"
+              v-for="(project, index) in projects"
+              :key="projects[index].id"
+              v-text="projects[index].name"
+            ></option>
           </select>
         </div>
       </div>
@@ -46,29 +44,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import { ListBox, TextInput, SelectInput } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
 import { useStore } from "vuex";
-import IProject from "@/interface/IProject";
 import { key } from "@/store";
-import { computed } from "@vue/reactivity";
 export default defineComponent({
   name: "FieldBar",
   emits: ["atSaveTask"],
+  props: ["store"],
   components: { ListBox, ListTemporizer, TextInput, SelectInput },
   data() {
     return {
       description: "",
       typePomodoro: "0",
-      idProject: 0,
+      idProject: "",
       options: [
         "Sprint livre",
         "Sprints 25/5",
         "Sprints 45/10",
         "Sprints 50/10"
-      ],
-      projectsOption: [] as IProject[]
+      ]
     };
   },
   methods: {
@@ -80,6 +76,8 @@ export default defineComponent({
         project: this.projects.find((proj) => proj.id == this.idProject)
       });
       this.description = "";
+      this.typePomodoro = "0";
+      this.idProject = "";
     }
   },
   setup() {

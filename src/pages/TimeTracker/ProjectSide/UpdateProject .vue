@@ -39,7 +39,7 @@ export default defineComponent({
   name: "UpdateProject",
   props: {
     id: {
-      type: Number
+      type: String
     }
   },
   components: {

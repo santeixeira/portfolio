@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="vue-modal" v-show="open">
+    <div class="vue-modal" v-show="open" @click="close">
       <transition name="drop-in">
         <div class="vue-modal-inner" v-show="open">
           <div class="vue-modal-content">

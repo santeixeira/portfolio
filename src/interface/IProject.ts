@@ -1,5 +1,5 @@
 export default interface IProject {
-  id: number;
+  id: string;
   name: string;
   type: string;
   created: string;
