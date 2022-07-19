@@ -26,7 +26,7 @@
         <div class="input-box">
           <i class="fas fa-diagram-project"></i>
           <select v-model="idProject">
-            <option value="" default>Selecione o projeto</option>
+            <option value="" selected>Selecione o projeto</option>
             <option
               :value="projects[index].name"
               v-for="(project, index) in projects"
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { ListBox, TextInput, SelectInput } from "@/components/index";
 import ListTemporizer from "./ListTemporizer.vue";
 import { useStore } from "vuex";
@@ -56,9 +56,6 @@ export default defineComponent({
   components: { ListBox, ListTemporizer, TextInput, SelectInput },
   data() {
     return {
-      description: "",
-      typePomodoro: "0",
-      idProject: "",
       options: [
         "Sprint livre",
         "Sprints 25/5",
@@ -67,23 +64,33 @@ export default defineComponent({
       ]
     };
   },
-  methods: {
-    end(timePassed: number): void {
-      this.$emit("atSaveTask", {
-        timeSeconds: timePassed,
-        description: this.description,
-        typePomodoro: this.typePomodoro,
-        project: this.projects.find((proj) => proj.id == this.idProject)
-      });
-      this.description = "";
-      this.typePomodoro = "0";
-      this.idProject = "";
-    }
-  },
-  setup() {
+  setup(props, { emit }) {
+    
     const store = useStore(key);
+
+    const description = ref("");
+    const typePomodoro = ref("");
+    const idProject = ref("");
+
+    const projects = computed(() => store.state.projects);
+
+    const end = (timePassed: number): void => {
+      emit("atSaveTask", {
+        timeSeconds: timePassed,
+        description: description.value,
+        typePomodoro: typePomodoro.value,
+        project: projects.value.find((proj) => proj.id == idProject.value)
+      });
+      description.value = "";
+      typePomodoro.value = "";
+    };
+
     return {
-      projects: computed(() => store.state.projects)
+      projects,
+      description,
+      typePomodoro,
+      idProject,
+      end
     };
   }
 });

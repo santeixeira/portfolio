@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { CButton, TextInput } from "@/components/index";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "@/store";
 import { computed } from "@vue/reactivity";
 import { TypeNotification } from "@/interface/INotification";
@@ -43,48 +43,42 @@ export default defineComponent({
     CButton,
     TextInput
   },
-  mounted() {
-    if (this.id) {
-      const project = this.store.state.projects.find(
-        (proj) => proj.id == this.id
-      );
-      this.projectName = project?.name || "";
-    }
-  },
-  data() {
-    return {
-      taskName: "",
-      projectName: ""
-    };
-  },
+  setup(props) {
+    const store = useStore();
+    const projectName = ref("");
+    const taskName = ref("");
+    const projects = computed(() => store.state.projects);
 
-  methods: {
-    async save() {
-      this.store
+    if (props.id) {
+      const project = store.state.projects.find((proj) => proj.id == props.id);
+      projectName.value = project?.name || "";
+    }
+    const { toNotify } = Notifier();
+    const save = () => {
+      store
         .dispatch(POST_PROJECTS, {
-          name: this.taskName,
-          type: this.projectName,
+          name: taskName.value,
+          type: projectName.value,
           created: new Date().toLocaleDateString("pt-BR"),
           updated: "Sem modificações"
         })
         .then(() => {
-          this.taskName = "";
-          this.toNotify(
+          toNotify(
             TypeNotification.SUCESS,
             "Sucesso",
-            `Projeto ${this.taskName} adicionado.`,
+            `Projeto ${taskName.value} adicionado.`,
             "fas fa-check"
           );
         });
-    }
-  },
-  setup() {
-    const store = useStore();
-    const { toNotify } = Notifier();
+    };
+
     return {
       store,
+      projectName,
+      taskName,
       toNotify,
-      projects: computed(() => store.state.projects)
+      save,
+      projects
     };
   }
 });

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div class="vue-modal" v-show="open" @click="close">
+    <div class="vue-modal" v-show="open">
       <transition name="drop-in">
         <div class="vue-modal-inner" v-show="open">
           <div class="vue-modal-content">
@@ -65,7 +65,8 @@ export default defineComponent({
   cursor: pointer;
 }
 .vue-modal {
-  position: fixed;display: flex;
+  position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
