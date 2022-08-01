@@ -24,4 +24,12 @@ export default class ScreenDetect {
     }
     return onChangeVariable;
   }
+
+  rollDown(onChangeVariable: boolean) {
+    window.onscroll = (ev) => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+          alert("Esta scrollando para baixo");
+      }
+  };
+  }
 }

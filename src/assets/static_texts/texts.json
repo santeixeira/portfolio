@@ -1,10 +1,22 @@
 {
-  "home": {
-    "p2": "Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as minhas evoluções como programador, desde portfólio a artigos cientificos das mais diversas areas. Programação, matemática, física, dicas que posso oferecer, até mesmo pitacos em aeronáutica.",
-    "p3": "Aqui você pode também organizar suas horas de estudos, com metodologias de estudos rápido, como pomodoro, listagem de categorias e afins. Dá uma conferida, colega!"
+  "br": {
+    "home": {
+      "p2": "I welcome you to my humble virtual house, where I leave all of my evolutions as a programmer, from the portfolio to cientific articles (journals) on multiple areas of study. Codeing, mathematics, physics, tips and last, but not least, chitchat about aircraft.",
+      "p3": "In here you can also use my app to organize your studies to be more productive and make your sit-down-reading-times more effective, using agile methodologies for it!"
+    },
+    "about": {
+      "p1": "Sou um programador, amante do progresso e admirador de muitos esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou estudante de Ciência da Computação no Instituto Federal do Ceará. Almejo a consistência nos estudos, na academia (tanto física quanto institucional) e na vida."
+    }
   },
-  "about": {
-    "p1": "Sou um programador, amante do progresso e admirador de muitos esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou estudante de Ciência da Computação no Instituto Federal do Ceará. Almejo a consistência nos estudos, na academia (tanto física quanto institucional) e na vida."
+
+  "en": {
+    "home": {
+      "p2": "Desejo-te boas vindas à minha humilde casa virtual, onde deixo todas as minhas evoluções como programador, desde portfólio a artigos cientificos das mais diversas areas. Programação, matemática, física, dicas que posso oferecer, até mesmo pitacos em aeronáutica.",
+      "p3": "Aqui você pode também organizar suas horas de estudos, com metodologias de estudos rápido, como pomodoro, listagem de categorias e afins. Dá uma conferida, colega!"
+    },
+    "about": {
+      "p1": "Sou um programador, amante do progresso e admirador de muitos esportistas, pois neles, vejo a vontade de sempre melhorar. Hoje sou estudante de Ciência da Computação no Instituto Federal do Ceará. Almejo a consistência nos estudos, na academia (tanto física quanto institucional) e na vida."
+    }
   },
   "urls": {
     "email": "mailto:jbsanthiago@gmail.com",

@@ -22,7 +22,7 @@
             >Portfólio</router-link
           >
         </li>
-        <li class="navbar-item has-dropdown is-hoverable">
+        <li class="navbar-item is-hoverable">
           <a class="navbar-link" :class="{ 'dark-mode': darkMode }">
             Minerva
           </a>
@@ -40,7 +40,7 @@
             <a class="navbar-item"> Contato </a>
           </div>
         </li>
-        <li>
+        <li class="navbar-item __toggle">
           <ToggleButton @checkedBox="alterTheme" />
         </li>
       </ul>
@@ -89,14 +89,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import url("@/assets/config_sass/navbar.scss");
 #nav {
-  margin-left: 40em;
+  justify-content: end;
 }
 header {
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 50px 0;
+  padding: 0.5em 50px 0.5em;
   width: 100%;
   z-index: 100;
 }
@@ -104,7 +104,13 @@ header img {
   height: 3em;
 }
 nav {
-  background: none;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
 }
 .nav__links {
   list-style: none;
@@ -112,11 +118,12 @@ nav {
 
 .nav__links li {
   display: inline-block;
-  padding: 0 20px;
+  width: 9em;
 }
 
 .nav__links li a {
   transition: all 0.3s ease 0s;
+  justify-content: center !important;
   &:hover {
     color: #4fb49d;
   }
@@ -125,7 +132,11 @@ header .burger {
   display: none;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (min-width: 1088px) {
+  .navbar-dropdown a.navbar-item {
+    padding-right: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 768px) {

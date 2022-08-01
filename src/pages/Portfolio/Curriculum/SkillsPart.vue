@@ -47,9 +47,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/assets/config_sass/dark-mode.scss";
 #skills {
   margin-top: -2.5em;
+  color: #2c3e50;
 }
 ul.align-horizontal {
   list-style-type: none;

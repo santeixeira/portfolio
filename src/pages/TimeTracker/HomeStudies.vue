@@ -30,8 +30,8 @@
     </div>
   </div>
   <div id="top" class="columns is-multiline" :class="{ hide: login }">
-    <div id="part3" class="column is-6 is-align-items-center">
-      <h1 id="part3header">Estudos</h1>
+    <div id="part1" class="column is-6 is-align-items-center">
+      <h1 id="part1header">Estudos</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam non
         impedit, consequatur quis veritatis repellendus eum sapiente
@@ -40,7 +40,7 @@
       </p>
       <router-link to="/app/pomodoro"><CButton>Estudar</CButton></router-link>
     </div>
-    <div id="part3text" class="column is-6">
+    <div id="part1text" class="column is-6">
       <img
         src="https://img.freepik.com/free-photo/rear-view-programmer-working-all-night-long_1098-18697.jpg?t=st=1656525473~exp=1656526073~hmac=4e93d0f826ba691ef9d3573ab4ad753ca2a43fa96090273dc2da79cb7be96b68&w=740"
         alt=""
@@ -48,12 +48,12 @@
     </div>
 
     <div class="column is-6">
-      <img
+      <img 
         src="https://img.freepik.com/free-photo/boy-studying-university-library_23-2148844678.jpg?t=st=1656534712~exp=1656535312~hmac=42b4e9e1bac77c333bb871d90aa2eef272bfb88fb2fa2a145ef0146d97490d77&w=740"
         alt=""
       />
     </div>
-    <div class="column is-6 is-align-items-center">
+    <div id="part2" class="column is-6 is-align-items-center">
       <h1>Pomodoro</h1>
       <p>
         The Pomodoro Technique is a time management method developed by
@@ -68,7 +68,7 @@
         time.
       </p>
     </div>
-    <div id="part3" class="column is-6 is-align-items-center">
+    <div id="part3" class="column is-6">
       <h1 id="part3header">Feynman Method</h1>
       <p>
         The Feynman Technique is a method of learning that unleashes your
@@ -126,13 +126,19 @@ export default defineComponent({
 }
 #overlay img {
   height: 30em;
-  
+
   background-position: top center;
   object-fit: cover;
 }
 #overlay h1 {
   margin: 1em 10em 0em;
   color: #fff;
+}
+
+#part1,
+#part2,
+#part3 {
+  align-self: center;
 }
 
 #overlay p {
@@ -165,8 +171,8 @@ export default defineComponent({
 
 @media (max-width: 820px) {
   .overlay {
-  top: 5.25em;
-}
+    top: 5.25em;
+  }
   #overlay h1 {
     margin: 1em 0em 0em;
     color: #fff;

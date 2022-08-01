@@ -84,7 +84,7 @@ export const store = createStore<State>({
   actions: {
     [GET_PROJECTS]({ commit }) {
       http
-        .get("projects")
+        .get("/projects")
         .then((response) => commit(GET_PROJECT, response.data));
     },
     [POST_PROJECTS]({ commit }, newProject: IProject) {
@@ -108,12 +108,12 @@ export const store = createStore<State>({
     },
 
     [GET_TASKS]({ commit }) {
-      http.get("pomodoro").then((response) => commit(GET_TASK, response.data));
+      http.get("/task").then((response) => commit(GET_TASK, response.data));
     },
 
     [POST_TASKS]({ commit }, newTask: ITask) {
       return http
-        .post("/pomodoro", {
+        .post("/task", {
           ...newTask,
           
         })
