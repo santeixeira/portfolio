@@ -28,7 +28,7 @@ export default defineComponent({
   data() {
     return {
       darkMode: "dark-mode",
-      home: mode.home
+      home: mode.en.home
     };
   },
   components: { CButton, BlockBox },

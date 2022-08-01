@@ -1,6 +1,9 @@
 <template>
   <main :class="{ 'dark-mode': darkMode }">
-    <NavBar @altered-theme="alterTheme" :class="{ 'dark-mode': darkMode }" />
+    <NavBar
+      @altered-theme="alterTheme"
+      :class="{ 'dark-mode': darkMode, onScroll: !view }"
+    />
     <ContentSlot :class="{ 'dark-mode': darkMode }"
       ><router-view
     /></ContentSlot>
@@ -21,22 +24,30 @@ export default defineComponent({
   components: {
     NavBar,
     ContentSlot,
-    FooterBar,
- 
-},
+    FooterBar
+  },
   props: ["dark-mode"],
   data() {
     return {
-      darkMode: false
+      darkMode: false,
+      view: true
     };
   },
   methods: {
     alterTheme(darkModeActive: boolean) {
       this.darkMode = darkModeActive;
+    },
+    handleScroll() {
+      if (window.pageYOffset > 0) {
+        if (this.view) this.view = false;
+      } else {
+        if (!this.view) this.view = true;
+      }
     }
   },
   mounted() {
     this.darkMode = sc.darkTheme(this.darkMode);
+    window.addEventListener("scroll", this.handleScroll);
   }
 });
 </script>
@@ -61,4 +72,18 @@ h1 {
 
 @media only screen and (min-width: 1080px) {
 }
+
+header.onScroll {
+  box-shadow: 0 0 10px #2c3e50!important;
+  background-color: $gray-scale!important;
+  transition: 0.3s ease;
+}
+
+header.onScroll.dark-mode {
+  box-shadow: 0 0 10px #2c3e50!important;
+  background-color: #000!important;
+  transition: 0.3s ease;
+}
+
+
 </style>
