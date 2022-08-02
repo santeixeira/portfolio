@@ -22,12 +22,12 @@
             >Portfólio</router-link
           >
         </li>
-        <li class="navbar-item is-hoverable">
+        <li class="navbar-item is-hoverable" >
           <a class="navbar-link" :class="{ 'dark-mode': darkMode }">
             Minerva
           </a>
 
-          <div class="navbar-dropdown">
+          <div :class="{ 'navbar-dropdown': !ariaHidden }">
             <router-link class="navbar-item" to="/estudos">Estudos</router-link>
             <router-link class="navbar-item" to="/estudos"
               >Notícias</router-link
@@ -104,7 +104,6 @@ header img {
   height: 3em;
 }
 nav {
-  position: fixed;
   width: 100%;
   height: 70px;
   background-color: transparent;
@@ -138,8 +137,13 @@ header .burger {
     padding-right: 2.5rem;
   }
 }
-
 @media screen and (max-width: 768px) {
+ .nav__links {
+    top: 10vh!important; 
+  }
+}
+
+@media screen and (max-width: 1088px) {
   #nav {
     margin-left: 10em;
   }
@@ -147,11 +151,21 @@ header .burger {
     overflow-x: hidden;
   }
 
+  header {
+    padding: 0.5em 1.5em 0.5em;
+  }
+
+  header img {
+    width: 2em;
+    height: 2.25em;
+  }
+
+
   .nav__links {
     position: fixed;
     right: 0px;
     height: 92vh;
-    top: 13vh;
+    top: 6vh;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
@@ -163,6 +177,7 @@ header .burger {
   }
   header .burger {
     display: block;
+    color: #fff !important;
   }
 }
 

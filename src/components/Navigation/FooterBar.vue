@@ -9,7 +9,13 @@
         <h3>Github</h3>
         <h3>Instagram</h3>
       </div>
-      <div class="column is-3 _footer-col"><h2>Portfólio</h2></div>
+      <div class="column is-3 _footer-col is-multiline">
+        <h2>Portfólio</h2>
+        <h3>Apresentação</h3>
+        <h3>Currículo</h3>
+        <h3>Aplicações</h3>
+        <h3>Certificados</h3>       
+      </div>
       <div class="column is-3 _footer-col"><h2>Contatos</h2></div>
       <div class="column is-3 _footer-col"><h2>Contatos</h2></div>
     </div>
@@ -52,6 +58,7 @@ footer {
 footer .columns.__foot {
   justify-content: center;
   align-self: center;
+  padding: 1em 0 1em;
 }
 
 h4 {
