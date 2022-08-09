@@ -3,21 +3,64 @@
     <div class="columns mt-4">
       <div class="column is-3 _footer-col is-multiline">
         <h2>Contatos</h2>
-        <h3>Email</h3>
-        <h3>Whatsapp</h3>
-        <h3>LinkedIn</h3>
-        <h3>Github</h3>
-        <h3>Instagram</h3>
+        <h3>
+          <router-link to="/">Email</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Whatsapp</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">LinkedIn</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Github</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Instagram</router-link>
+        </h3>
       </div>
       <div class="column is-3 _footer-col is-multiline">
         <h2>Portfólio</h2>
-        <h3>Apresentação</h3>
-        <h3>Currículo</h3>
-        <h3>Aplicações</h3>
-        <h3>Certificados</h3>       
+        <h3>
+          <router-link to="/">Apresentação</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Currículo</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Aplicações</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Certificados</router-link>
+        </h3>
       </div>
-      <div class="column is-3 _footer-col"><h2>Contatos</h2></div>
-      <div class="column is-3 _footer-col"><h2>Contatos</h2></div>
+      <div class="column is-3 _footer-col">
+        <h2>Projeto Minerva</h2>
+        <h3>
+          <router-link to="/">Estudos</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Pomodoro</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Class</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Notícias</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Artigos</router-link>
+        </h3>
+        <h3>
+          <router-link to="/">Documentações</router-link>
+        </h3>
+      </div>
+      <div class="column is-3 _footer-col">
+        <h2>Políticas</h2>
+        <h3>
+          <router-link to="/">Termos de Uso</router-link>
+        </h3>
+      </div>
     </div>
     <div class="columns __foot">
       <h4>Desenvolvido por San Thiago Teixeira - 2022</h4>
@@ -52,7 +95,7 @@ export default defineComponent({
 footer {
   background-color: #000;
   color: #fff;
-  font-family: "Bitter", serif;
+  
 }
 
 footer .columns.__foot {
@@ -61,9 +104,13 @@ footer .columns.__foot {
   padding: 1em 0 1em;
 }
 
+a,
 h4 {
   font-size: 0.75em;
   color: #fff;
+}
+img {
+  height: 3em;
 }
 h3 {
   font-size: 0.75em;
@@ -76,6 +123,16 @@ h3 {
   justify-content: center;
   text-align: center;
   font-size: 1em;
+  height: 14em;
+}
+
+@media screen and (max-width: 768px) {
+  ._footer-col {
+    height: 100%;
+  }
+  h2 {
+    margin: 0.5em 0 0.5em !important;
+  }
 }
 
 ._footer {

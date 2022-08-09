@@ -137,6 +137,27 @@ header .burger {
     padding-right: 2.5rem;
   }
 }
+
+@media screen and (min-width: 350px) {
+  header img {
+    width: 5em!important;
+    height: 2.25em;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  header img {
+    width: 4.25em!important;
+    height: 2.25em;
+  }
+}
+@media screen and (min-width: 768px) {
+  header img {
+    width: 3em!important;
+    height: 2.25em;
+  }
+}
+
 @media screen and (max-width: 768px) {
  .nav__links {
     top: 10vh!important; 
@@ -152,7 +173,7 @@ header .burger {
   }
 
   header {
-    padding: 0.5em 1.5em 0.5em;
+    padding: 0em 1.5em 0em;
   }
 
   header img {
